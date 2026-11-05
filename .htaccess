@@ -1,0 +1,34 @@
+# ==============================================================================
+# Storify Storefront - Apache / LiteSpeed / cPanel Configuration
+# ==============================================================================
+
+# Enable URL Rewriting to prevent 404s on subpages & routes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve existing physical files, directories, and assets directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Route all other URLs to index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Enable GZIP / Deflate Compression for Speed
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache Static Assets for Faster Subsequent Loads
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
