@@ -526,6 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pdpMainImage = document.getElementById('pdpMainImage');
     const pdpBrand = document.getElementById('pdpBrand');
     const pdpTitle = document.getElementById('pdpTitle');
+    const pdpMobileTitle = document.getElementById('pdpMobileTitle');
     const pdpSku = document.getElementById('pdpSku');
     const pdpMfg = document.getElementById('pdpMfg');
     const pdpOdoo = document.getElementById('pdpOdoo');
@@ -558,6 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (pdpBrand) pdpBrand.textContent = prod.brand;
     if (pdpTitle) pdpTitle.textContent = prod.title;
+    if (pdpMobileTitle) pdpMobileTitle.textContent = prod.title;
     if (pdpSku) pdpSku.textContent = prod.sku;
     if (pdpMfg) pdpMfg.textContent = prod.mfg;
     if (pdpOdoo) pdpOdoo.textContent = prod.odoo;

@@ -482,7 +482,7 @@
 
       <div class="products-grid">
         <!-- Product 1: Helmet -->
-        <div class="product-card">
+        <div class="product-card" onclick="window.location.href='product.html?id=helmet'">
           <div class="product-card-top">
             <span class="badge-best-seller">Best seller</span>
             <span class="badge-local-content">
@@ -495,7 +495,7 @@
 
           <div class="product-image-container">
             <img src="assets/images/safety-helmet.svg" alt="Ironcrest Safety Helmet">
-            <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=helmet'">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=helmet'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
@@ -515,7 +515,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar">SAR 85.00</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="window.addToCart('Safety Helmet', 'SAR 85.00')" aria-label="Add Safety Helmet to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Safety Helmet', 'SAR 85.00')" aria-label="Add Safety Helmet to Order">
                 <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -525,14 +525,14 @@
         </div>
 
         <!-- Product 2: Cut-Resistant Gloves -->
-        <div class="product-card">
+        <div class="product-card" onclick="window.location.href='product.html?id=gloves'">
           <div class="product-card-top">
             <span class="badge-best-seller">Best seller</span>
           </div>
 
           <div class="product-image-container">
             <img src="assets/images/prod-gloves.svg" alt="Falconline Cut-Resistant Gloves">
-            <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=gloves'">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=gloves'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
@@ -552,7 +552,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar">SAR 42.50</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="window.addToCart('Cut-Resistant Gloves', 'SAR 42.50')" aria-label="Add Cut-Resistant Gloves to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Cut-Resistant Gloves', 'SAR 42.50')" aria-label="Add Cut-Resistant Gloves to Order">
                 <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -562,14 +562,14 @@
         </div>
 
         <!-- Product 3: Deep Groove Ball Bearing (Hover Quick View Showcase) -->
-        <div class="product-card">
+        <div class="product-card" onclick="window.location.href='product.html?id=bearing'">
           <div class="product-card-top">
             <span class="badge-best-seller">Best seller</span>
           </div>
 
           <div class="product-image-container">
             <img src="assets/images/bearing.svg" alt="Nordbridge Deep Groove Ball Bearing">
-            <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=bearing'">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=bearing'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
@@ -589,7 +589,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar">SAR 120.00</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="window.addToCart('Ball Bearing 6205-2RS', 'SAR 120.00')" aria-label="Add Ball Bearing to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Ball Bearing 6205-2RS', 'SAR 120.00')" aria-label="Add Ball Bearing to Order">
                 <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -599,7 +599,7 @@
         </div>
 
         <!-- Product 4: Gate Valve 4" Flanged -->
-        <div class="product-card">
+        <div class="product-card" onclick="window.location.href='product.html?id=valve'">
           <div class="product-card-top">
             <span class="badge-best-seller">Best seller</span>
             <span class="badge-local-content">
@@ -612,7 +612,7 @@
 
           <div class="product-image-container">
             <img src="assets/images/gate-valve.svg" alt="Duravalve Gate Valve 4 Inch Flanged">
-            <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=valve'">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=valve'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
@@ -632,7 +632,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar">SAR 1,595.00</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="window.addToCart('Gate Valve 4 Inch', 'SAR 1,595.00')" aria-label="Add Gate Valve to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Gate Valve 4 Inch', 'SAR 1,595.00')" aria-label="Add Gate Valve to Order">
                 <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -641,13 +641,13 @@
           </div>
         </div>
         <!-- Product 5: Miniature Circuit Breaker (Image 1) -->
-        <div class="product-card">
+        <div class="product-card" onclick="window.location.href='product.html?id=mcb'">
           <div class="product-card-top">
             <span class="badge-best-seller">Best seller</span>
           </div>
           <div class="product-image-container">
             <img src="assets/images/prod-mcb.svg" alt="Arcwell Miniature Circuit Breaker 32A">
-            <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=mcb'">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=mcb'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
@@ -667,7 +667,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>32.20</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="window.addToCart('Circuit Breaker 32A', 'SAR 32.20')" aria-label="Add Circuit Breaker to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Circuit Breaker 32A', 'SAR 32.20')" aria-label="Add Circuit Breaker to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -677,13 +677,13 @@
         </div>
 
         <!-- Product 6: Cordless Impact Drill (Image 1) -->
-        <div class="product-card">
+        <div class="product-card" onclick="window.location.href='product.html?id=drill'">
           <div class="product-card-top">
             <span class="badge-best-seller">Best seller</span>
           </div>
           <div class="product-image-container">
             <img src="assets/images/prod-drill.svg" alt="Torqmaster Cordless Impact Drill 18V">
-            <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=drill'">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=drill'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
@@ -703,7 +703,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>828.00</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="window.addToCart('Cordless Impact Drill 18V Kit', 'SAR 828.00')" aria-label="Add Cordless Drill to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Cordless Impact Drill 18V Kit', 'SAR 828.00')" aria-label="Add Cordless Drill to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -713,13 +713,13 @@
         </div>
 
         <!-- Product 7: Hydraulic Hose SAE 100R2AT (Image 1) -->
-        <div class="product-card">
+        <div class="product-card" onclick="window.location.href='product.html?id=hose'">
           <div class="product-card-top">
             <span class="badge-best-seller">Best seller</span>
           </div>
           <div class="product-image-container">
             <img src="assets/images/prod-hose.svg" alt="Hydrapex Hydraulic Hose SAE 100R2AT">
-            <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=hose'">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=hose'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
@@ -739,7 +739,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>48.30</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="window.addToCart('Hydraulic Hose 1/2 Inch', 'SAR 48.30')" aria-label="Add Hydraulic Hose to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Hydraulic Hose 1/2 Inch', 'SAR 48.30')" aria-label="Add Hydraulic Hose to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -749,7 +749,7 @@
         </div>
 
         <!-- Product 8: Stud Bolt Set ASTM A193 B7 (Image 1) -->
-        <div class="product-card">
+        <div class="product-card" onclick="window.location.href='product.html?id=studs'">
           <div class="product-card-top">
             <span class="badge-best-seller">Best seller</span>
             <span class="badge-local-content">
@@ -761,7 +761,7 @@
           </div>
           <div class="product-image-container">
             <img src="assets/images/prod-studs.svg" alt="Sahm Fasteners Stud Bolt Set ASTM A193 B7">
-            <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=studs'">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=studs'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
