@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 240" fill="none">
+  <defs>
+    <linearGradient id="drillYellow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="drillShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <ellipse cx="140" cy="218" rx="65" ry="8" fill="#0f172a" opacity="0.08"/>
+  <g filter="url(#drillShadow)" transform="translate(10, 10)">
+    <!-- Chuck -->
+    <rect x="70" y="82" width="22" height="12" rx="2" fill="#94a3b8"/>
+    <polygon points="64,88 70,84 70,92" fill="#cbd5e1"/>
+    <rect x="92" y="74" width="24" height="28" rx="3" fill="#334155"/>
+    <rect x="114" y="78" width="10" height="20" fill="#1e293b"/>
+
+    <!-- Main Yellow Drill Body -->
+    <rect x="122" y="60" width="88" height="52" rx="8" fill="url(#drillYellow)"/>
+    <text x="152" y="88" font-family="sans-serif" font-size="9" font-weight="900" fill="#1e293b">18V</text>
+    
+    <!-- Cooling Vents -->
+    <line x1="174" y1="70" x2="174" y2="94" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="182" y1="70" x2="182" y2="94" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="190" y1="70" x2="190" y2="94" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Black Handle -->
+    <path d="M145 112 L142 165 L164 165 L168 112 Z" fill="#1e293b"/>
+    <!-- Red Trigger -->
+    <rect x="138" y="118" width="8" height="14" rx="2" fill="#ef4444"/>
+
+    <!-- Battery Pack -->
+    <rect x="132" y="165" width="48" height="24" rx="5" fill="#0f172a"/>
+    <!-- Fuel Gauge Lights (3 green bars) -->
+    <rect x="140" y="174" width="6" height="3" rx="1" fill="#10b981"/>
+    <rect x="148" y="174" width="6" height="3" rx="1" fill="#10b981"/>
+    <rect x="156" y="174" width="6" height="3" rx="1" fill="#10b981"/>
+  </g>
+</svg>

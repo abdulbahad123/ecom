@@ -124,6 +124,38 @@ document.addEventListener('DOMContentLoaded', () => {
       stock: '42 in stock · Jubail Yard',
       image: 'assets/images/cat-valves.svg',
       sku: 'VLV-GT-4150'
+    },
+    'mcb': {
+      brand: 'ARCWELL ELECTRIC',
+      title: 'Miniature Circuit Breaker 32 A, 1P 10kA Type C',
+      price: 'SAR 32.20',
+      stock: '2,100 in stock · Dammam Electrical Depot',
+      image: 'assets/images/prod-mcb.svg',
+      sku: 'ELC-BRK-032A'
+    },
+    'drill': {
+      brand: 'TORQMASTER',
+      title: 'Cordless Impact Drill 18 V Kit with Dual 5.0Ah Batteries',
+      price: 'SAR 828.00',
+      stock: '160 in stock · Khobar Tool Center',
+      image: 'assets/images/prod-drill.svg',
+      sku: 'TLS-DRI-18V'
+    },
+    'hose': {
+      brand: 'HYDRAPEX FLUID POWER',
+      title: 'Hydraulic Hose SAE 100R2AT 1/2" Two-Wire Braid 4000 PSI',
+      price: 'SAR 48.30',
+      stock: '1,800 in stock · Jubail Fluid Yard',
+      image: 'assets/images/prod-hose.svg',
+      sku: 'HYD-HSE-R2-08'
+    },
+    'studs': {
+      brand: 'SAHM FASTENERS',
+      title: 'Stud Bolt Set ASTM A193 B7, M20 × 150 with 2 Heavy Hex Nuts (25 pcs)',
+      price: 'SAR 241.50',
+      stock: '640 in stock · Dammam Port Warehouse',
+      image: 'assets/images/prod-studs.svg',
+      sku: 'FST-STB-B7M20'
     }
   };
 
@@ -202,3 +234,4 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast(`Quote requisition initiated for: ${categoryName}. Quote ID #QT-${Math.floor(1000 + Math.random() * 9000)} generated.`, 'info');
   };
 });
+

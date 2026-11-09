@@ -1384,3 +1384,387 @@ img, svg {
     grid-template-columns: 1fr;
   }
 }
+
+
+
+/* --------------------------------------------------------------------------
+   Sourcing Desk Banner (Image 2)
+   -------------------------------------------------------------------------- */
+.sourcing-desk-section {
+  padding-bottom: 72px;
+}
+
+.sourcing-desk-card {
+  background: linear-gradient(115deg, #09121f 0%, #111e33 42%, #261608 78%, #451a03 100%);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  border-radius: 28px;
+  padding: 56px 64px;
+  box-shadow: 0 20px 48px -10px rgba(15, 23, 42, 0.3);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sourcing-desk-card::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.sourcing-desk-tag {
+  font-size: 12px;
+  font-weight: 800;
+  color: #f97316;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sourcing-desk-title {
+  font-size: clamp(30px, 3.2vw, 44px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+}
+
+.sourcing-desk-desc {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #cbd5e1;
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+.btn-sourcing-rfq {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--primary-orange);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0 28px;
+  height: 50px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-sourcing-rfq:hover {
+  background-color: var(--primary-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(249, 115, 22, 0.45);
+}
+
+.sourcing-steps-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.sourcing-step-item {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.sourcing-step-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(249, 115, 22, 0.5);
+  transform: translateX(6px);
+}
+
+.sourcing-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background-color: var(--primary-orange);
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sourcing-step-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .sourcing-desk-card {
+    grid-template-columns: 1fr;
+    padding: 36px 28px;
+    gap: 36px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   How It Works Section (Image 3)
+   -------------------------------------------------------------------------- */
+.how-it-works-section {
+  padding-bottom: 76px;
+}
+
+.how-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  position: relative;
+}
+
+.how-step-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.how-step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+.how-icon-box {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background-color: #fff7ed;
+  border: 1px solid #ffedd5;
+  color: var(--primary-orange);
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.how-badge-num {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--navy-dark);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  border: 2px solid #ffffff;
+}
+
+.how-step-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy-dark);
+  margin-bottom: 10px;
+}
+
+.how-step-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .how-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Industries Section (Image 4)
+   -------------------------------------------------------------------------- */
+.industries-section {
+  padding-bottom: 76px;
+}
+
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.industry-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover & Active Radial Amber Glow (Matching Energy & Utilities in Image 4) */
+.industry-card.active-glow,
+.industry-card:hover {
+  background: radial-gradient(circle at 85% 15%, #fef3c7 0%, #ffffff 75%);
+  border-color: #fde68a;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -4px rgba(245, 158, 11, 0.12);
+}
+
+.industry-icon-wrap {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 24px;
+  color: var(--primary-orange);
+}
+
+.industry-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy-dark);
+  margin-bottom: 8px;
+}
+
+.industry-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1100px) {
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   "Procurement You Can Audit" Trust Strip (Image 5)
+   -------------------------------------------------------------------------- */
+.audit-strip-section {
+  padding-bottom: 72px;
+}
+
+.audit-strip-card {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 24px;
+  padding: 36px 44px;
+}
+
+.audit-header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy-dark);
+  margin-bottom: 28px;
+}
+
+.audit-shield-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--primary-orange);
+}
+
+.audit-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.audit-pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.pillar-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.pillar-icon-green { background-color: #dcfce7; color: #16a34a; }
+.pillar-icon-blue { background-color: #dbeafe; color: #2563eb; }
+.pillar-icon-navy { background-color: #e2e8f0; color: #0f1c2e; }
+.pillar-icon-orange { background-color: #ffedd5; color: #ea580c; }
+
+.pillar-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--navy-dark);
+  margin-bottom: 4px;
+}
+
+.pillar-desc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .audit-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .audit-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .audit-strip-card {
+    padding: 24px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Recently Viewed Section (Image 5)
+   -------------------------------------------------------------------------- */
+.recently-viewed-section {
+  padding-bottom: 84px;
+}
+
+.recently-viewed-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--navy-dark);
+  margin-bottom: 24px;
+}
