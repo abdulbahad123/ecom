@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 200" fill="none">
+  <defs>
+    <linearGradient id="pumpYellow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="motorBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <filter id="pumpShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <ellipse cx="140" cy="170" rx="75" ry="10" fill="#0f172a" opacity="0.08"/>
+  <g filter="url(#pumpShadow)">
+    <!-- Base Plate -->
+    <rect x="80" y="148" width="128" height="10" rx="2" fill="#334155"/>
+    <!-- Centrifugal Pump Volute (Yellow) -->
+    <circle cx="112" cy="116" r="30" fill="url(#pumpYellow)"/>
+    <rect x="104" y="72" width="16" height="20" rx="2" fill="url(#pumpYellow)"/>
+    <rect x="100" y="68" width="24" height="6" rx="1.5" fill="#d97706"/>
+    <!-- Pump Suction Eye -->
+    <circle cx="112" cy="116" r="14" fill="#1e293b"/>
+    <circle cx="112" cy="116" r="6" fill="#cbd5e1"/>
+    <!-- Motor (Blue with cooling fins) -->
+    <rect x="142" y="92" width="56" height="48" rx="4" fill="url(#motorBlue)"/>
+    <line x1="148" y1="92" x2="148" y2="140" stroke="#1e40af" stroke-width="2"/>
+    <line x1="156" y1="92" x2="156" y2="140" stroke="#1e40af" stroke-width="2"/>
+    <line x1="164" y1="92" x2="164" y2="140" stroke="#1e40af" stroke-width="2"/>
+    <line x1="172" y1="92" x2="172" y2="140" stroke="#1e40af" stroke-width="2"/>
+    <line x1="180" y1="92" x2="180" y2="140" stroke="#1e40af" stroke-width="2"/>
+    <!-- Motor Terminal Box -->
+    <rect x="154" y="82" width="22" height="10" rx="2" fill="#1e293b"/>
+    <!-- Motor Fan Cowl -->
+    <rect x="198" y="95" width="8" height="42" rx="2" fill="#1e293b"/>
+  </g>
+</svg>

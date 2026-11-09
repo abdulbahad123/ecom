@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 200" fill="none">
+  <defs>
+    <linearGradient id="flangeWood" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#b45309"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+    <linearGradient id="cableCoil" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="spoolShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <ellipse cx="140" cy="172" rx="65" ry="10" fill="#0f172a" opacity="0.08"/>
+  <g filter="url(#spoolShadow)">
+    <!-- Back Flange -->
+    <ellipse cx="158" cy="98" rx="36" ry="56" fill="#78350f"/>
+    <!-- Wounded Cable Core -->
+    <rect x="112" y="65" width="46" height="66" fill="url(#cableCoil)"/>
+    <!-- Cable Texture Lines -->
+    <line x1="112" y1="76" x2="158" y2="76" stroke="#475569" stroke-width="2"/>
+    <line x1="112" y1="88" x2="158" y2="88" stroke="#475569" stroke-width="2"/>
+    <line x1="112" y1="100" x2="158" y2="100" stroke="#475569" stroke-width="2"/>
+    <line x1="112" y1="112" x2="158" y2="112" stroke="#475569" stroke-width="2"/>
+    <line x1="112" y1="124" x2="158" y2="124" stroke="#475569" stroke-width="2"/>
+    <!-- Yellow Specs Tag -->
+    <rect x="122" y="90" width="26" height="12" rx="2" fill="#f59e0b"/>
+    <text x="135" y="99" font-family="sans-serif" font-size="5.5" font-weight="900" fill="#1e293b" text-anchor="middle">4G×16</text>
+    <!-- Front Flange -->
+    <ellipse cx="112" cy="100" rx="38" ry="58" fill="url(#flangeWood)"/>
+    <ellipse cx="112" cy="100" rx="14" ry="22" fill="#f8fafc"/>
+    <ellipse cx="112" cy="100" rx="8" ry="12" fill="#1e293b"/>
+    <!-- Loose Cable Lead -->
+    <path d="M152 125 C165 145, 175 155, 192 152" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="192" cy="152" r="3.5" fill="#f59e0b"/>
+  </g>
+</svg>

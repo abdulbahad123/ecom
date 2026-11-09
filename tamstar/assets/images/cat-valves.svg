@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 200" fill="none">
+  <defs>
+    <linearGradient id="valveBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="wheelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="valveShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <ellipse cx="140" cy="170" rx="80" ry="10" fill="#0f172a" opacity="0.08"/>
+  <g filter="url(#valveShadow)">
+    <!-- Valve Body Pipe -->
+    <rect x="75" y="125" width="130" height="28" rx="4" fill="url(#valveBody)"/>
+    <!-- Left Flange -->
+    <rect x="65" y="115" width="14" height="48" rx="3" fill="#1e293b"/>
+    <circle cx="72" cy="122" r="2.5" fill="#94a3b8"/>
+    <circle cx="72" cy="156" r="2.5" fill="#94a3b8"/>
+    <!-- Right Flange -->
+    <rect x="201" y="115" width="14" height="48" rx="3" fill="#1e293b"/>
+    <circle cx="208" cy="122" r="2.5" fill="#94a3b8"/>
+    <circle cx="208" cy="156" r="2.5" fill="#94a3b8"/>
+    <!-- Center Bonnet Neck -->
+    <rect x="122" y="95" width="36" height="35" rx="3" fill="url(#valveBody)"/>
+    <rect x="115" y="90" width="50" height="8" rx="2" fill="#1e293b"/>
+    <!-- Valve Tag -->
+    <rect x="129" y="102" width="22" height="12" rx="2" fill="#2563eb"/>
+    <text x="140" y="110.5" font-family="sans-serif" font-size="5.5" font-weight="900" fill="#ffffff" text-anchor="middle">150#</text>
+    <!-- Yoke & Stem -->
+    <rect x="136" y="55" width="8" height="38" fill="#cbd5e1"/>
+    <!-- Handwheel -->
+    <ellipse cx="140" cy="52" rx="46" ry="12" fill="url(#wheelGrad)"/>
+    <ellipse cx="140" cy="52" rx="36" ry="8" fill="#f8fafc"/>
+    <ellipse cx="140" cy="52" rx="14" ry="4" fill="url(#wheelGrad)"/>
+    <!-- Spokes -->
+    <line x1="94" y1="52" x2="186" y2="52" stroke="#b45309" stroke-width="3"/>
+  </g>
+</svg>

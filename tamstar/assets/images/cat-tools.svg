@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 200" fill="none">
+  <defs>
+    <linearGradient id="toolBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="toolShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <ellipse cx="140" cy="172" rx="60" ry="10" fill="#0f172a" opacity="0.08"/>
+  <g filter="url(#toolShadow)">
+    <!-- Drill Chuck & Bit -->
+    <rect x="80" y="86" width="18" height="6" fill="#cbd5e1"/>
+    <polygon points="76,89 80,86 80,92" fill="#94a3b8"/>
+    <rect x="98" y="80" width="22" height="18" rx="2" fill="#334155"/>
+    <rect x="116" y="83" width="8" height="12" fill="#1e293b"/>
+    <!-- Main Motor Housing -->
+    <rect x="122" y="70" width="76" height="36" rx="6" fill="url(#toolBody)"/>
+    <!-- Motor Vents -->
+    <line x1="168" y1="76" x2="168" y2="92" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="174" y1="76" x2="174" y2="92" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="180" y1="76" x2="180" y2="92" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- 18V Badge -->
+    <text x="145" y="88" font-family="sans-serif" font-size="7.5" font-weight="900" fill="#1e293b">18V</text>
+    <!-- Handle -->
+    <path d="M142 106 L144 148 L160 148 L162 106 Z" fill="#1e293b"/>
+    <rect x="137" y="110" width="7" height="9" rx="2" fill="#ef4444"/>
+    <!-- Battery Base -->
+    <rect x="135" y="148" width="38" height="15" rx="3" fill="#0f172a"/>
+    <rect x="142" y="152" width="24" height="2" fill="#10b981"/>
+  </g>
+</svg>

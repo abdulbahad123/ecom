@@ -24,13 +24,32 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   let reqUrl = req.url.split('?')[0];
   if (reqUrl === '/') reqUrl = '/index.html';
+  if (reqUrl.endsWith('/')) reqUrl += 'index.html';
 
-  const filePath = path.join(__dirname, decodeURIComponent(reqUrl));
+  let filePath = path.join(__dirname, decodeURIComponent(reqUrl));
+
+  // If path is a directory, look for index.html inside it
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+    filePath = path.join(filePath, 'index.html');
+  }
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
       const ext = path.extname(reqUrl);
-      // SPA Fallback: non-file routes serve index.html with 200 OK instead of 404
+      // SPA Fallback: check if requested path is under /tamstar/
+      if (reqUrl.startsWith('/tamstar')) {
+        const tamstarIndex = path.join(__dirname, 'tamstar', 'index.html');
+        if (fs.existsSync(tamstarIndex)) {
+          res.writeHead(200, {
+            'Content-Type': 'text/html; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*'
+          });
+          fs.createReadStream(tamstarIndex).pipe(res);
+          return;
+        }
+      }
+
+      // Root SPA Fallback
       if (!ext || ext === '.html') {
         const indexPath = path.join(__dirname, 'index.html');
         res.writeHead(200, {
