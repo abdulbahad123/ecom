@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Safety Helmet, 6-Point Ratchet Suspension ANSI Z89.1',
       price: 'SAR 85.00',
       stock: '1,850 in stock · Dammam & Jubail',
-      image: 'assets/images/cat-safety.svg',
+      image: 'assets/images/safety-helmet.svg',
       sku: 'PPE-HLM-6019'
     },
     'gloves': {
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Deep Groove Precision Ball Bearing 6205-2RS C3',
       price: 'SAR 120.00',
       stock: '2,400 in stock · Jubail Industrial Hub',
-      image: 'assets/images/cat-bearings.svg',
+      image: 'assets/images/bearing.svg',
       sku: 'BRG-6205-2RS'
     },
     'valve': {
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Gate Valve 4" Class 150 Flanged Cast Steel WCB API 600',
       price: 'SAR 1,595.00',
       stock: '42 in stock · Jubail Yard',
-      image: 'assets/images/cat-valves.svg',
+      image: 'assets/images/gate-valve.svg',
       sku: 'VLV-GT-4150'
     },
     'mcb': {
@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
       longDesc: 'Double rubber-sealed bearing for electric motors and conveyors. Precision-ground and factory-greased for long service life in high-temperature environments.',
       price: '21.28',
       stock: '2400 in stock · Ships within 48 h',
-      image: 'assets/images/cat-bearings.svg',
+      image: 'assets/images/bearing.svg',
       volumePricing: [
         { qty: '● 1+', unit: 'SAR 21.28', save: '—', active: true },
         { qty: '10+', unit: 'SAR 20.72', save: '-2.6%' },
@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
       longDesc: 'Engineered for refinery and petrochemical utility service. Rising stem design with Stellite hard-faced trim for bidirectional tight shut-off.',
       price: '1,595.00',
       stock: '42 in stock · Ships within 24 h',
-      image: 'assets/images/cat-valves.svg',
+      image: 'assets/images/gate-valve.svg',
       volumePricing: [
         { qty: '● 1+', unit: 'SAR 1,595.00', save: '—', active: true },
         { qty: '5+', unit: 'SAR 1,520.00', save: '-4.7%' },
@@ -435,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
       longDesc: 'High-density polyethylene shell rated for electrical hazards up to 20,000 volts. Moisture-wicking brow pad for Eastern Province desert heat.',
       price: '85.00',
       stock: '1,850 in stock · Ships within 24 h',
-      image: 'assets/images/cat-safety.svg',
+      image: 'assets/images/safety-helmet.svg',
       volumePricing: [
         { qty: '● 1+', unit: 'SAR 85.00', save: '—', active: true },
         { qty: '20+', unit: 'SAR 79.00', save: '-7.0%' },
@@ -480,6 +480,35 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       doc1: { name: 'PPE-GLV-004-datasheet.pdf', size: 'PDF · 350 KB' },
       doc2: { name: 'PPE-GLV-004-en388-cert.pdf', size: 'PDF · 190 KB' }
+    },
+    'pump': {
+      brand: 'FLUIDMAX SYSTEMS',
+      title: 'Centrifugal Slurry Pump with Electric Motor 15 kW',
+      sku: 'PMP-SLR-15KW',
+      mfg: 'Fluidmax Industrial',
+      odoo: '4078',
+      cat: 'Pumps',
+      catHash: '#cat-pumps',
+      shortDesc: 'Heavy-duty industrial centrifugal slurry pump coupled with high-efficiency 15 kW motor.',
+      longDesc: 'Engineered for continuous handling of highly abrasive, high density slurries in mining, chemical processing and effluent transfer applications.',
+      price: '3,850.00',
+      stock: '18 in stock · Ships within 24 h',
+      image: 'assets/images/centrifugal-pump.svg',
+      volumePricing: [
+        { qty: '● 1+', unit: 'SAR 3,850.00', save: '—', active: true },
+        { qty: '3+', unit: 'SAR 3,680.00', save: '-4.4%' },
+        { qty: '5+', unit: 'SAR 3,490.00', save: '-9.3%' },
+        { qty: '10+', unit: 'SAR 3,250.00', save: '-15.5%' }
+      ],
+      specs: [
+        { label: 'Flow Rate', val: '120 m³/h' },
+        { label: 'Head', val: '45 meters' },
+        { label: 'Motor Power', val: '15 kW (20 HP) 3-Phase 380V' },
+        { label: 'Impeller Material', val: 'High Chrome Alloy (27% Cr)' },
+        { label: 'Casing', val: 'Ductile Iron' }
+      ],
+      doc1: { name: 'PMP-SLR-15KW-datasheet.pdf', size: 'PDF · 1.8 MB' },
+      doc2: { name: 'PMP-SLR-15KW-pump-curve.pdf', size: 'PDF · 620 KB' }
     }
   };
 

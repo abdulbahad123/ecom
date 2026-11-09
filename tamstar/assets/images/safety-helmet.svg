@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="h-shell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#eef1f5"/><stop offset="1" stop-color="#bfc7d2"/></linearGradient>
+    <linearGradient id="h-brim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3e7ed"/><stop offset="1" stop-color="#a3adbb"/></linearGradient>
+    <linearGradient id="h-stripe" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffb53a"/><stop offset="1" stop-color="#f27a1a"/></linearGradient>
+  </defs>
+  <path d="M60 268c0-96 62-170 140-170s140 74 140 170z" fill="url(#h-shell)"/>
+  <path d="M186 100c-6 40-8 110-6 168h40c2-58 0-128-6-168z" fill="#dfe4ea"/>
+  <path d="M128 120c-18 30-28 90-26 148M272 120c18 30 28 90 26 148" stroke="#cdd4dd" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M30 268c0-10 8-16 18-16h304c10 0 18 6 18 16v10c0 14-10 22-24 22H54c-14 0-24-8-24-22z" fill="url(#h-brim)"/>
+  <path d="M66 234h268" stroke="url(#h-stripe)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M110 150c20-26 46-40 76-44" stroke="#fff" stroke-width="10" stroke-linecap="round" fill="none" opacity=".9"/>
+  <rect x="150" y="166" width="100" height="38" rx="9" fill="#0047ba"/>
+  <text x="200" y="191" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#fff" letter-spacing="1">SAFETY</text>
+</svg>

@@ -15,7 +15,7 @@
     <div class="container top-bar-inner">
       <div class="top-bar-left">
         <span class="top-bar-badge"></span>
-        <span>Contract pricing for registered companies · Delivery across the Kingdom · ZATCA e-invoicing</span>
+        <span>Contract pricing for registered companies &middot; Delivery across the Kingdom &middot; ZATCA e-invoicing</span>
       </div>
       <div class="top-bar-right">
         <div class="top-bar-item">
@@ -23,7 +23,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
           </svg>
-          <span>Dammam · Jubail</span>
+          <span>Dammam &middot; Jubail</span>
         </div>
         <div class="top-bar-item">
           <svg style="width: 14px; height: 14px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -175,23 +175,31 @@
         </div>
       </div>
 
-      <!-- Right 3D Visual & Floating Badges (Reference Image 2 & 3 - Exact DevTools Dimensions) -->
+      <!-- Right 3D Visual Stage (Reference Image 2 - Exact DevTools Dimensions & Positions) -->
       <div class="hero-visual-wrapper">
         <div class="hero-sun-orb"></div>
 
-        <!-- Top Right Bearing: 26% width, top -2%, right 22% (Image 2 DevTools) -->
-        <img src="assets/images/cat-bearings.svg" alt="Industrial Bearing" class="hero-top-bearing">
+        <!-- 1. Top-Right Bearing: end-[22%] -top-[2%] w-[26%] -->
+        <div class="hero-pos-bearing">
+          <img src="assets/images/bearing.svg" alt="Industrial Bearing" width="400" height="400">
+        </div>
 
-        <!-- Center Gate Valve: 78% width (Image 2 DevTools) -->
-        <img src="assets/images/cat-valves.svg" alt="Gate Valve 4 Inch Class 150 Flanged" class="hero-center-valve">
+        <!-- 2. Gate Valve: start-[6%] top-[4%] w-[46%] -->
+        <div class="hero-pos-valve">
+          <img src="assets/images/gate-valve.svg" alt="Gate Valve 4 Inch Class 150 Flanged" width="400" height="400">
+        </div>
 
-        <!-- Middle-Right Centrifugal Pump & Electric Motor: 48% width, top 30%, right -2% (Image 2 DevTools) -->
-        <img src="assets/images/cat-pumps.svg" alt="Centrifugal Slurry Pump & Motor" class="hero-right-pump">
+        <!-- 3. Middle-Right Centrifugal Pump & Electric Motor: end-[0%] top-[30%] w-[48%] -->
+        <div class="hero-pos-pump">
+          <img src="assets/images/centrifugal-pump.svg" alt="Centrifugal Slurry Pump & Motor" width="400" height="400">
+        </div>
 
-        <!-- Bottom-Left Safety Hardhat Helmet: 36% width, bottom 7%, left 7% (Image 2 DevTools) -->
-        <img src="assets/images/cat-safety.svg" alt="Safety Helmet ANSI Z89.1" class="hero-bottom-helmet">
+        <!-- 4. Bottom-Left Safety Helmet: start-[7%] bottom-[7%] w-[36%] -->
+        <div class="hero-pos-helmet">
+          <img src="assets/images/safety-helmet.svg" alt="Safety Helmet ANSI Z89.1" width="400" height="400">
+        </div>
 
-        <!-- Floating Odoo SO Badge: left -2%, top 44% (Image 2 DevTools) -->
+        <!-- 5. Floating Odoo SO Badge: start-[0%] top-[44%] -->
         <div class="floating-odoo-card">
           <div class="odoo-icon-box">
             <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -204,7 +212,7 @@
           </div>
         </div>
 
-        <!-- Floating Price Card: right -4%, bottom 8% (Image 2 DevTools) -->
+        <!-- 6. Floating Price Card: bottom-[12%] end-[-7%] w-60 -->
         <div class="floating-price-card">
           <div class="price-card-label">
             <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 20 20">
@@ -484,7 +492,7 @@
           </div>
 
           <div class="product-image-container">
-            <img src="assets/images/cat-safety.svg" alt="Ironcrest Safety Helmet">
+            <img src="assets/images/safety-helmet.svg" alt="Ironcrest Safety Helmet">
             <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=helmet'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -558,7 +566,7 @@
           </div>
 
           <div class="product-image-container">
-            <img src="assets/images/cat-bearings.svg" alt="Nordbridge Deep Groove Ball Bearing">
+            <img src="assets/images/bearing.svg" alt="Nordbridge Deep Groove Ball Bearing">
             <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=bearing'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -601,7 +609,7 @@
           </div>
 
           <div class="product-image-container">
-            <img src="assets/images/cat-valves.svg" alt="Duravalve Gate Valve 4 Inch Flanged">
+            <img src="assets/images/gate-valve.svg" alt="Duravalve Gate Valve 4 Inch Flanged">
             <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=valve'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -1013,7 +1021,7 @@
       <div style="display: flex; gap: 20px; overflow-x: auto; padding-bottom: 8px;">
         <div class="product-card" style="width: 280px; flex-shrink: 0;">
           <div class="product-image-container">
-            <img src="assets/images/cat-bearings.svg" alt="Deep Groove Ball Bearing">
+            <img src="assets/images/bearing.svg" alt="Deep Groove Ball Bearing">
             <button type="button" class="product-quick-view-btn" onclick="window.location.href='product.html?id=bearing'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
