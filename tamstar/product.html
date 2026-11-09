@@ -76,11 +76,11 @@
           <span>Sign in</span>
         </button>
 
-        <button type="button" class="cart-icon-btn" onclick="window.showToast('Order List: ' + (document.getElementById('cartBadge').textContent) + ' items selected', 'info')" aria-label="View Order List">
+        <button type="button" class="cart-icon-btn" onclick="window.openCartSidebar()" aria-label="View Order List">
           <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
           </svg>
-          <span class="cart-badge" id="cartBadge">0</span>
+          <span class="cart-badge" id="cartBadge">3</span>
         </button>
       </div>
     </div>
@@ -90,23 +90,20 @@
   <nav class="sub-nav-bar" aria-label="Industrial Categories">
     <div class="container sub-nav-inner">
       <div style="display: flex; align-items: center; gap: 24px;">
-        <a href="index.html#categoriesSection" class="all-categories-btn" style="text-decoration: none;">
+        <a href="categories.html" class="all-categories-btn" style="text-decoration: none;">
           <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h7"/>
           </svg>
           <span>All categories</span>
-          <svg style="width: 14px; height: 14px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-          </svg>
         </a>
 
         <div class="category-nav-links">
-          <a href="index.html#cat-safety" class="category-nav-link">Safety & PPE</a>
-          <a href="index.html#cat-bearings" class="category-nav-link active">Bearings & Power Transmission</a>
-          <a href="index.html#cat-valves" class="category-nav-link">Valves & Fittings</a>
-          <a href="index.html#cat-electrical" class="category-nav-link">Electrical & Cables</a>
-          <a href="index.html#cat-tools" class="category-nav-link">Power Tools</a>
-          <a href="index.html#cat-pumps" class="category-nav-link">Pumps</a>
+          <a href="categories.html?cat=safety" class="category-nav-link">Safety & PPE</a>
+          <a href="categories.html?cat=bearings" class="category-nav-link active">Bearings & Power Transmission</a>
+          <a href="categories.html?cat=valves" class="category-nav-link">Valves & Fittings</a>
+          <a href="categories.html?cat=electrical" class="category-nav-link">Electrical & Cables</a>
+          <a href="categories.html?cat=tools" class="category-nav-link">Power Tools</a>
+          <a href="categories.html?cat=pumps" class="category-nav-link">Pumps</a>
         </div>
       </div>
 
@@ -133,7 +130,7 @@
     <nav class="pdp-breadcrumbs">
       <a href="index.html">Home</a>
       <span class="bc-sep">›</span>
-      <a href="index.html#categoriesSection">All categories</a>
+      <a href="categories.html">All categories</a>
       <span class="bc-sep">›</span>
       <a href="index.html#cat-bearings" id="pdpBreadcrumbCat">Bearings & Power Transmission</a>
       <span class="bc-sep">›</span>
@@ -421,7 +418,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>48.50</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Ball Bearing 6310-ZZ', 'SAR 48.50')" aria-label="Add to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('bearing-6310')" aria-label="Add to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -454,7 +451,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>310.00</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Spherical Roller Bearing', 'SAR 310.00')" aria-label="Add to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('bearing-roller')" aria-label="Add to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -487,7 +484,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>76.40</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Pillow Block Bearing', 'SAR 76.40')" aria-label="Add to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('bearing')" aria-label="Add to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -523,7 +520,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>142.00</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Tapered Roller Bearing 32212', 'SAR 142.00')" aria-label="Add to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('bearing')" aria-label="Add to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -663,7 +660,7 @@
       </svg>
       <span>Home</span>
     </a>
-    <a href="index.html#categoriesSection" class="mobile-nav-item">
+    <a href="categories.html" class="mobile-nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="3" width="7" height="7"></rect>
         <rect x="14" y="3" width="7" height="7"></rect>

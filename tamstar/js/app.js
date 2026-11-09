@@ -69,18 +69,240 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Cart Counter & Add To Cart Functionality
-  let cartCount = 0;
-  const cartBadge = document.getElementById('cartBadge');
+  // 3. Cart State & Checkout Sidebar Manager (Image 5)
+  window.cartState = {
+    items: [
+      {
+        id: 'gloves',
+        title: 'Cut-Resistant Gloves, Level A4',
+        sku: 'PPE-GLV-3104',
+        unitPrice: 28.91,
+        qty: 3,
+        image: 'assets/images/prod-gloves.svg'
+      }
+    ]
+  };
+
+  // Inject Checkout / Cart Sidebar HTML into body if not present
+  window.initCartSidebar = function() {
+    if (document.getElementById('cartSidebar')) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'checkout-sidebar-overlay';
+    overlay.id = 'cartSidebarOverlay';
+    overlay.onclick = window.closeCartSidebar;
+    document.body.appendChild(overlay);
+
+    const sidebar = document.createElement('aside');
+    sidebar.className = 'checkout-sidebar';
+    sidebar.id = 'cartSidebar';
+    sidebar.setAttribute('aria-label', 'Cart Sidebar');
+    sidebar.innerHTML = `
+      <div class="cart-sidebar-header">
+        <h3 class="cart-sidebar-title">Cart (<span id="cartSidebarCount">0</span>)</h3>
+        <button type="button" class="cart-sidebar-close-btn" onclick="window.closeCartSidebar()" aria-label="Close cart">
+          <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="cart-sidebar-body" id="cartSidebarItems">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div class="cart-sidebar-footer" id="cartSidebarFooter">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">SAR 0.00</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>VAT (15%)</span>
+          <span id="cartVat">SAR 0.00</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Delivery</span>
+          <span class="cart-delivery-free">Free</span>
+        </div>
+        <div class="cart-summary-total-row">
+          <span>Total</span>
+          <span id="cartTotal">SAR 0.00</span>
+        </div>
+        <button type="button" class="cart-checkout-btn" onclick="window.proceedToCheckout()">
+          <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+          <span>Proceed to checkout</span>
+          <span>&rarr;</span>
+        </button>
+        <a href="categories.html" class="cart-view-catalog-link" onclick="window.closeCartSidebar()">View full catalog</a>
+        <div class="cart-payment-badges">
+          <span class="pay-badge pay-mada">mada</span>
+          <span class="pay-badge pay-visa">VISA</span>
+          <span class="pay-badge pay-mc">MC</span>
+          <span class="pay-badge pay-apple">Pay</span>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(sidebar);
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') window.closeCartSidebar();
+    });
+
+    // Re-render items
+    window.renderCartSidebar();
+  };
+
+  window.openCartSidebar = function() {
+    window.initCartSidebar();
+    window.renderCartSidebar();
+    const sidebar = document.getElementById('cartSidebar');
+    const overlay = document.getElementById('cartSidebarOverlay');
+    if (sidebar && overlay) {
+      sidebar.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeCartSidebar = function() {
+    const sidebar = document.getElementById('cartSidebar');
+    const overlay = document.getElementById('cartSidebarOverlay');
+    if (sidebar && overlay) {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  window.renderCartSidebar = function() {
+    const container = document.getElementById('cartSidebarItems');
+    const countEl = document.getElementById('cartSidebarCount');
+    const badgeEl = document.getElementById('cartBadge');
+    const subtotalEl = document.getElementById('cartSubtotal');
+    const vatEl = document.getElementById('cartVat');
+    const totalEl = document.getElementById('cartTotal');
+    const footerEl = document.getElementById('cartSidebarFooter');
+
+    const totalCount = window.cartState.items.reduce((sum, item) => sum + item.qty, 0);
+    if (countEl) countEl.textContent = totalCount;
+    if (badgeEl) {
+      badgeEl.textContent = totalCount;
+      badgeEl.style.transform = 'scale(1.25)';
+      setTimeout(() => { badgeEl.style.transform = 'scale(1)'; }, 200);
+    }
+
+    if (!container) return;
+
+    if (window.cartState.items.length === 0) {
+      container.innerHTML = `
+        <div class="cart-empty-state">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <div style="font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Your cart is empty</div>
+          <p style="font-size: 13px; color: #64748b; margin-bottom: 16px;">Add industrial parts from the catalog or in-stock products.</p>
+          <a href="categories.html" class="all-categories-btn" style="text-decoration: none; display: inline-flex;" onclick="window.closeCartSidebar()">Browse categories</a>
+        </div>
+      `;
+      if (footerEl) footerEl.style.display = 'none';
+      return;
+    }
+
+    if (footerEl) footerEl.style.display = 'block';
+
+    let subtotal = 0;
+    container.innerHTML = window.cartState.items.map(item => {
+      const itemTotal = item.unitPrice * item.qty;
+      subtotal += itemTotal;
+      return `
+        <div class="cart-item-card">
+          <div class="cart-item-thumb">
+            <img src="${item.image}" alt="${item.title}">
+          </div>
+          <div class="cart-item-info">
+            <div class="cart-item-top">
+              <h4 class="cart-item-title">${item.title}</h4>
+              <button type="button" class="cart-item-remove-btn" onclick="window.removeFromCart('${item.id}')" aria-label="Remove item">
+                <svg style="width: 16px; height: 16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                </svg>
+              </button>
+            </div>
+            <div class="cart-item-sku">${item.sku || 'IND-PART'}</div>
+            <div class="cart-item-bottom">
+              <div class="cart-item-stepper">
+                <button type="button" class="cart-step-btn" onclick="window.updateCartQty('${item.id}', -1)" aria-label="Decrease quantity">&minus;</button>
+                <span class="cart-step-qty">${item.qty}</span>
+                <button type="button" class="cart-step-btn" onclick="window.updateCartQty('${item.id}', 1)" aria-label="Increase quantity">+</button>
+              </div>
+              <div class="cart-item-price-block">
+                <div class="cart-item-total-price">SAR ${itemTotal.toFixed(2)}</div>
+                <div class="cart-item-unit-price">SAR ${item.unitPrice.toFixed(2)}/Unit</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    const vat = subtotal * 0.15;
+    const total = subtotal + vat;
+
+    if (subtotalEl) subtotalEl.textContent = `SAR ${subtotal.toFixed(2)}`;
+    if (vatEl) vatEl.textContent = `SAR ${vat.toFixed(2)}`;
+    if (totalEl) totalEl.textContent = `SAR ${total.toFixed(2)}`;
+  };
+
+  window.addToCartAndOpen = function(prodKey, qty = 1) {
+    const prod = fullProductsDb[prodKey] || productsDatabase[prodKey];
+    if (prod) {
+      const existing = window.cartState.items.find(i => i.id === prodKey);
+      const unitP = parseFloat(String(prod.price).replace(/[^0-9.]/g, '')) || 28.91;
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        window.cartState.items.push({
+          id: prodKey,
+          title: prod.title,
+          sku: prod.sku || 'PPE-GLV-3104',
+          unitPrice: unitP,
+          qty: qty,
+          image: prod.image
+        });
+      }
+    }
+    window.openCartSidebar();
+    showToast(`Added to Order: ${prod ? prod.title : 'Part'}`);
+  };
 
   window.addToCart = function(productName, price) {
-    cartCount++;
-    if (cartBadge) {
-      cartBadge.textContent = cartCount;
-      cartBadge.style.transform = 'scale(1.3)';
-      setTimeout(() => { cartBadge.style.transform = 'scale(1)'; }, 200);
-    }
+    // Legacy mapper to addToCartAndOpen
+    window.openCartSidebar();
     showToast(`Added to Order: ${productName} (${price})`);
+  };
+
+  window.updateCartQty = function(prodKey, delta) {
+    const item = window.cartState.items.find(i => i.id === prodKey);
+    if (item) {
+      item.qty += delta;
+      if (item.qty <= 0) {
+        window.cartState.items = window.cartState.items.filter(i => i.id !== prodKey);
+      }
+      window.renderCartSidebar();
+    }
+  };
+
+  window.removeFromCart = function(prodKey) {
+    window.cartState.items = window.cartState.items.filter(i => i.id !== prodKey);
+    window.renderCartSidebar();
+  };
+
+  window.proceedToCheckout = function() {
+    window.closeCartSidebar();
+    showToast('Odoo SO/2026/00041 created! Synced with Eastern Province central warehouse.', 'success');
   };
 
   // 4. Quick View Modal
@@ -610,11 +832,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Add to order from PDP
   window.addCurrentPdpToCart = function() {
-    const title = document.getElementById('pdpTitle') ? document.getElementById('pdpTitle').textContent : 'Product';
-    const price = document.getElementById('pdpPriceVal') ? ('SAR ' + document.getElementById('pdpPriceVal').textContent) : 'SAR 0.00';
-    for (let i = 0; i < currentPdpQty; i++) {
-      window.addToCart(title, price);
-    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const prodKey = urlParams.get('id') || 'bearing';
+    window.addToCartAndOpen(prodKey, currentPdpQty || 1);
   };
 
   // Tab switcher (Image 3 & 5)
@@ -635,5 +855,159 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // 5. Catalog Database for Categories Page (Images 2, 3, 4)
+  const catalogProducts = [
+    // Safety & PPE
+    { id: 'helmet', cat: 'safety', brand: 'IRONCREST SAFETY', title: 'Vented Safety Helmet, 6-Point Ratchet', sku: 'PPE-HLM-001', price: 85.00, stock: '1850 in stock', image: 'assets/images/safety-helmet.svg', bestSeller: true, localContent: true },
+    { id: 'gloves', cat: 'safety', brand: 'FALCONLINE', title: 'Cut-Resistant Gloves, Level A4', sku: 'PPE-GLV-3104', price: 28.91, stock: '5600 in stock', image: 'assets/images/prod-gloves.svg', bestSeller: true, localContent: false },
+    { id: 'hard-hat', cat: 'safety', brand: 'IRONCREST SAFETY', title: 'Full-Brim Hard Hat, High-Visibility', sku: 'PPE-HLM-6022', price: 112.00, stock: '940 in stock', image: 'assets/images/safety-helmet.svg', bestSeller: false, localContent: true },
+    
+    // Bearings & Power Transmission
+    { id: 'bearing', cat: 'bearings', brand: 'NORDBRIDGE BEARINGS', title: 'Deep Groove Ball Bearing 6205-2RS', sku: 'BRG-6205-2RS', price: 21.28, stock: '2400 in stock', image: 'assets/images/bearing.svg', bestSeller: true, localContent: false },
+    { id: 'bearing-6310', cat: 'bearings', brand: 'NORDBRIDGE BEARINGS', title: 'Deep Groove Ball Bearing 6310-ZZ', sku: 'BRG-6310-ZZ', price: 48.50, stock: '180 in stock', image: 'assets/images/bearing.svg', bestSeller: false, localContent: false },
+    { id: 'bearing-roller', cat: 'bearings', brand: 'NORDBRIDGE BEARINGS', title: 'Spherical Roller Bearing 22220 EK', sku: 'BRG-SRB-22220', price: 680.00, stock: '95 in stock', image: 'assets/images/bearing.svg', bestSeller: false, localContent: false },
+
+    // Valves & Fittings
+    { id: 'valve', cat: 'valves', brand: 'DURAVALVE', title: 'Gate Valve 4" Class 150, Flanged', sku: 'VLV-GT-4150', price: 1595.00, stock: '64 in stock', image: 'assets/images/gate-valve.svg', bestSeller: true, localContent: true },
+
+    // Electrical & Cables
+    { id: 'mcb', cat: 'electrical', brand: 'ARCWELL ELECTRIC', title: 'Miniature Circuit Breaker 32 A, 1P', sku: 'ELC-BRK-032A', price: 32.20, stock: '2100 in stock', image: 'assets/images/prod-mcb.svg', bestSeller: true, localContent: false },
+
+    // Power Tools
+    { id: 'drill', cat: 'tools', brand: 'TORQMASTER', title: 'Cordless Impact Drill 18 V Kit', sku: 'TLS-DRI-18V', price: 828.00, stock: '160 in stock', image: 'assets/images/prod-drill.svg', bestSeller: true, localContent: false },
+
+    // Hydraulics & Pneumatics
+    { id: 'hose', cat: 'hydraulics', brand: 'HYDRAPEX FLUID POWER', title: 'Hydraulic Hose SAE 100R2AT 1/2"', sku: 'HYD-HSE-R2-08', price: 48.30, stock: '1800 in stock', image: 'assets/images/prod-hose.svg', bestSeller: false, localContent: false },
+
+    // Fasteners
+    { id: 'studs', cat: 'fasteners', brand: 'SAHM FASTENERS', title: 'Stud Bolt Set ASTM A193 B7, M20 × 150', sku: 'FST-STB-B7M20', price: 241.50, stock: '640 in stock', image: 'assets/images/prod-studs.svg', bestSeller: false, localContent: true },
+
+    // Pumps
+    { id: 'pump', cat: 'pumps', brand: 'HYDRAPEX PUMPS', title: 'Centrifugal Slurry Pump & Motor', sku: 'PMP-SLR-3000', price: 4850.00, stock: '28 in stock', image: 'assets/images/centrifugal-pump.svg', bestSeller: true, localContent: false },
+    { id: 'pump-end', cat: 'pumps', brand: 'HYDRAPEX PUMPS', title: 'End-Suction Centrifugal Pump 7.5 kW', sku: 'PMP-CNT-075', price: 7750.00, stock: '12 left', image: 'assets/images/centrifugal-pump.svg', bestSeller: false, localContent: false },
+
+    // Lubricants
+    { id: 'oil', cat: 'lubricants', brand: 'PETROLON', title: 'Industrial Gear Oil ISO VG 320, 208 L', sku: 'LUB-GR320-208L', price: 3120.00, stock: '45 in stock', image: 'assets/images/cat-lubricants.svg', bestSeller: true, localContent: false },
+
+    // Filtration
+    { id: 'filter', cat: 'filtration', brand: 'FILTREX PRO', title: 'Hydraulic Return Filter Element 10 μm', sku: 'FLT-HYD-010U', price: 145.00, stock: '320 in stock', image: 'assets/images/cat-filtration.svg', bestSeller: true, localContent: false }
+  ];
+
+  window.initCatalogPage = function() {
+    const grid = document.getElementById('catalogGrid');
+    if (!grid) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const catParam = urlParams.get('cat') || 'all';
+
+    const catItem = document.querySelector(`.category-filter-item[data-cat="${catParam}"]`);
+    if (catItem) {
+      document.querySelectorAll('.category-filter-item').forEach(i => i.classList.remove('active'));
+      catItem.classList.add('active');
+    }
+
+    const catNames = {
+      'all': 'All products',
+      'safety': 'Safety & PPE',
+      'bearings': 'Bearings & Power Transmission',
+      'valves': 'Valves & Fittings',
+      'electrical': 'Electrical & Cables',
+      'tools': 'Power Tools',
+      'pumps': 'Pumps',
+      'hydraulics': 'Hydraulics & Pneumatics',
+      'fasteners': 'Fasteners',
+      'lubricants': 'Lubricants',
+      'filtration': 'Filtration'
+    };
+
+    const heroTitle = document.getElementById('catalogHeroTitle');
+    const breadcrumb = document.getElementById('catalogBreadcrumbCurrent');
+    if (heroTitle && catNames[catParam]) heroTitle.textContent = catNames[catParam];
+    if (breadcrumb && catNames[catParam]) breadcrumb.textContent = catNames[catParam];
+
+    window.renderCatalogProducts(catParam);
+  };
+
+  window.filterCatalogCategory = function(catKey, el) {
+    document.querySelectorAll('.category-filter-item').forEach(i => i.classList.remove('active'));
+    if (el) el.classList.add('active');
+
+    const heroTitle = document.getElementById('catalogHeroTitle');
+    const breadcrumb = document.getElementById('catalogBreadcrumbCurrent');
+
+    const catNames = {
+      'all': 'All products',
+      'safety': 'Safety & PPE',
+      'bearings': 'Bearings & Power Transmission',
+      'valves': 'Valves & Fittings',
+      'electrical': 'Electrical & Cables',
+      'tools': 'Power Tools',
+      'pumps': 'Pumps',
+      'hydraulics': 'Hydraulics & Pneumatics',
+      'fasteners': 'Fasteners',
+      'lubricants': 'Lubricants',
+      'filtration': 'Filtration'
+    };
+
+    if (heroTitle) heroTitle.textContent = catNames[catKey] || 'All products';
+    if (breadcrumb) breadcrumb.textContent = catNames[catKey] || 'All categories';
+
+    window.renderCatalogProducts(catKey);
+  };
+
+  window.renderCatalogProducts = function(catKey) {
+    const grid = document.getElementById('catalogGrid');
+    const countLabel = document.getElementById('catalogCountLabel');
+    if (!grid) return;
+
+    const filtered = catKey === 'all' 
+      ? catalogProducts 
+      : catalogProducts.filter(p => p.cat === catKey);
+
+    if (countLabel) countLabel.textContent = `${filtered.length} products`;
+
+    grid.innerHTML = filtered.map(p => `
+      <div class="product-card" onclick="window.location.href='product.html?id=${p.id}'">
+        <div class="product-card-top">
+          ${p.bestSeller ? '<span class="badge-best-seller">Best seller</span>' : ''}
+          ${p.localContent ? '<span class="badge-local-content"><svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Local content</span></span>' : ''}
+        </div>
+
+        <div class="product-image-container">
+          <img src="${p.image}" alt="${p.title}">
+          <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=${p.id}'">
+            <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+            <span>Quick view</span>
+          </button>
+        </div>
+
+        <div class="product-details">
+          <div class="product-brand">${p.brand}</div>
+          <h3 class="product-title">${p.title}</h3>
+          <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">${p.sku}</div>
+          <div class="product-stock-tag">
+            <span class="stock-indicator-dot"></span>
+            <span>${p.stock}</span>
+          </div>
+          <div class="product-footer-row">
+            <div class="product-price-block">
+              <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>${p.price.toFixed(2)}</span>
+            </div>
+            <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('${p.id}')" aria-label="Add to Order">
+              <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  };
+
   // Initialize on load
+  initCartSidebar();
   initProductDetailPage();
+  initCatalogPage();

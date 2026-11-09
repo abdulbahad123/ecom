@@ -76,11 +76,11 @@
           <span>Sign in</span>
         </button>
 
-        <button type="button" class="cart-icon-btn" onclick="window.showToast('Order List: ' + (document.getElementById('cartBadge').textContent) + ' items selected', 'info')" aria-label="View Order List">
+        <button type="button" class="cart-icon-btn" onclick="window.openCartSidebar()" aria-label="View Order List">
           <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
           </svg>
-          <span class="cart-badge" id="cartBadge">0</span>
+          <span class="cart-badge" id="cartBadge">3</span>
         </button>
       </div>
     </div>
@@ -90,23 +90,20 @@
   <nav class="sub-nav-bar" aria-label="Industrial Categories">
     <div class="container sub-nav-inner">
       <div style="display: flex; align-items: center; gap: 24px;">
-        <button type="button" class="all-categories-btn" onclick="document.getElementById('categoriesSection').scrollIntoView({behavior:'smooth'})">
+        <a href="categories.html" class="all-categories-btn" style="text-decoration: none;">
           <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h7"/>
           </svg>
           <span>All categories</span>
-          <svg style="width: 14px; height: 14px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
+        </a>
 
         <div class="category-nav-links">
-          <a href="#cat-safety" class="category-nav-link">Safety & PPE</a>
-          <a href="#cat-bearings" class="category-nav-link">Bearings & Power Transmission</a>
-          <a href="#cat-valves" class="category-nav-link">Valves & Fittings</a>
-          <a href="#cat-electrical" class="category-nav-link">Electrical & Cables</a>
-          <a href="#cat-tools" class="category-nav-link">Power Tools</a>
-          <a href="#cat-pumps" class="category-nav-link">Pumps</a>
+          <a href="categories.html?cat=safety" class="category-nav-link">Safety & PPE</a>
+          <a href="categories.html?cat=bearings" class="category-nav-link">Bearings & Power Transmission</a>
+          <a href="categories.html?cat=valves" class="category-nav-link">Valves & Fittings</a>
+          <a href="categories.html?cat=electrical" class="category-nav-link">Electrical & Cables</a>
+          <a href="categories.html?cat=tools" class="category-nav-link">Power Tools</a>
+          <a href="categories.html?cat=pumps" class="category-nav-link">Pumps</a>
         </div>
       </div>
 
@@ -271,7 +268,7 @@
           <h2 class="section-title">Shop by category</h2>
           <p class="section-subtitle">Ten engineered categories, synced from our Odoo inventory every 15 minutes.</p>
         </div>
-        <a href="#categoriesSection" class="section-view-all">
+        <a href="categories.html" class="section-view-all">
           <span>View all</span>
           <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
@@ -281,7 +278,7 @@
 
       <div class="categories-grid">
         <!-- 1. Safety & PPE -->
-        <div class="category-card" onclick="window.requestQuote('Safety & PPE')">
+        <div class="category-card" onclick="window.location.href='categories.html?cat=safety'">
           <div class="cat-image-wrap">
             <img src="assets/images/cat-safety.svg" alt="Safety & PPE">
           </div>
@@ -299,7 +296,7 @@
         </div>
 
         <!-- 2. Bearings & Power Transmission -->
-        <div class="category-card" onclick="window.requestQuote('Bearings & Power Transmission')">
+        <div class="category-card" onclick="window.location.href='categories.html?cat=bearings'">
           <div class="cat-image-wrap">
             <img src="assets/images/cat-bearings.svg" alt="Bearings & Power Transmission">
           </div>
@@ -317,7 +314,7 @@
         </div>
 
         <!-- 3. Valves & Fittings -->
-        <div class="category-card" onclick="window.requestQuote('Valves & Fittings')">
+        <div class="category-card" onclick="window.location.href='categories.html?cat=valves'">
           <div class="cat-image-wrap">
             <img src="assets/images/cat-valves.svg" alt="Valves & Fittings">
           </div>
@@ -335,7 +332,7 @@
         </div>
 
         <!-- 4. Electrical & Cables -->
-        <div class="category-card" onclick="window.requestQuote('Electrical & Cables')">
+        <div class="category-card" onclick="window.location.href='categories.html?cat=electrical'">
           <div class="cat-image-wrap">
             <img src="assets/images/cat-electrical.svg" alt="Electrical & Cables">
           </div>
@@ -353,7 +350,7 @@
         </div>
 
         <!-- 5. Power Tools -->
-        <div class="category-card" onclick="window.requestQuote('Power Tools')">
+        <div class="category-card" onclick="window.location.href='categories.html?cat=tools'">
           <div class="cat-image-wrap">
             <img src="assets/images/cat-tools.svg" alt="Power Tools">
           </div>
@@ -371,7 +368,7 @@
         </div>
 
         <!-- 6. Pumps -->
-        <div class="category-card" onclick="window.requestQuote('Pumps')">
+        <div class="category-card" onclick="window.location.href='categories.html?cat=pumps'">
           <div class="cat-image-wrap">
             <img src="assets/images/cat-pumps.svg" alt="Pumps">
           </div>
@@ -389,7 +386,7 @@
         </div>
 
         <!-- 7. Hydraulics & Pneumatics -->
-        <div class="category-card" onclick="window.requestQuote('Hydraulics & Pneumatics')">
+        <div class="category-card" onclick="window.location.href='categories.html?cat=hydraulics'">
           <div class="cat-image-wrap">
             <img src="assets/images/cat-hydraulics.svg" alt="Hydraulics & Pneumatics">
           </div>
@@ -407,7 +404,7 @@
         </div>
 
         <!-- 8. Fasteners -->
-        <div class="category-card" onclick="window.requestQuote('Fasteners')">
+        <div class="category-card" onclick="window.location.href='categories.html?cat=fasteners'">
           <div class="cat-image-wrap">
             <img src="assets/images/cat-fasteners.svg" alt="Fasteners">
           </div>
@@ -425,7 +422,7 @@
         </div>
 
         <!-- 9. Lubricants -->
-        <div class="category-card" onclick="window.requestQuote('Lubricants')">
+        <div class="category-card" onclick="window.location.href='categories.html?cat=lubricants'">
           <div class="cat-image-wrap">
             <img src="assets/images/cat-lubricants.svg" alt="Lubricants">
           </div>
@@ -443,7 +440,7 @@
         </div>
 
         <!-- 10. Filtration -->
-        <div class="category-card" onclick="window.requestQuote('Filtration')">
+        <div class="category-card" onclick="window.location.href='categories.html?cat=filtration'">
           <div class="cat-image-wrap">
             <img src="assets/images/cat-filtration.svg" alt="Filtration">
           </div>
@@ -515,7 +512,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar">SAR 85.00</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Safety Helmet', 'SAR 85.00')" aria-label="Add Safety Helmet to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('helmet')" aria-label="Add Safety Helmet to Order">
                 <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -552,7 +549,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar">SAR 42.50</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Cut-Resistant Gloves', 'SAR 42.50')" aria-label="Add Cut-Resistant Gloves to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('gloves')" aria-label="Add Cut-Resistant Gloves to Order">
                 <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -589,7 +586,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar">SAR 120.00</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Ball Bearing 6205-2RS', 'SAR 120.00')" aria-label="Add Ball Bearing to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('bearing')" aria-label="Add Ball Bearing to Order">
                 <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -632,7 +629,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar">SAR 1,595.00</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Gate Valve 4 Inch', 'SAR 1,595.00')" aria-label="Add Gate Valve to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('valve')" aria-label="Add Gate Valve to Order">
                 <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -667,7 +664,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>32.20</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Circuit Breaker 32A', 'SAR 32.20')" aria-label="Add Circuit Breaker to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('mcb')" aria-label="Add Circuit Breaker to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -703,7 +700,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>828.00</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Cordless Impact Drill 18V Kit', 'SAR 828.00')" aria-label="Add Cordless Drill to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('drill')" aria-label="Add Cordless Drill to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -739,7 +736,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>48.30</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCart('Hydraulic Hose 1/2 Inch', 'SAR 48.30')" aria-label="Add Hydraulic Hose to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('hose')" aria-label="Add Hydraulic Hose to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -781,7 +778,7 @@
               <div class="product-price-block">
                 <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>241.50</span>
               </div>
-              <button type="button" class="product-add-cart-btn" onclick="window.addToCart('Stud Bolt Set M20x150', 'SAR 241.50')" aria-label="Add Stud Bolt Set to Order">
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('studs')" aria-label="Add Stud Bolt Set to Order">
                 <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -1234,7 +1231,7 @@
       <span>Home</span>
     </a>
 
-    <a href="#categoriesSection" class="mobile-nav-item" onclick="window.setActiveMobileNav(this)">
+    <a href="categories.html" class="mobile-nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="3" width="7" height="7"></rect>
         <rect x="14" y="3" width="7" height="7"></rect>
