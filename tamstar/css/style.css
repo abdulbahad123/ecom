@@ -482,7 +482,10 @@ img, svg {
 }
 
 .hero-title .highlight-orange {
-  color: #ea580c;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 60%, #c2410c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
 }
 
 .hero-description {
@@ -592,10 +595,10 @@ img, svg {
 /* Sun Orb Disc: Vibrant Amber to Radiant Deep Orange with 3D highlight (Images 2 & 3) */
 .hero-sun-orb {
   position: absolute;
-  inset: 8%;
+  inset: 5%;
   border-radius: 50%;
-  background: radial-gradient(circle at 45% 45%, #fbbf24 0%, #f59e0b 26%, #ea580c 70%, #c2410c 100%);
-  box-shadow: 0 0 70px rgba(234, 88, 12, 0.42), 0 0 140px rgba(251, 191, 36, 0.22);
+  background: radial-gradient(circle at 45% 40%, #fbbf24 0%, #f59e0b 26%, #ea580c 70%, #c2410c 100%);
+  box-shadow: 0 0 70px rgba(234, 88, 12, 0.38), 0 0 140px rgba(251, 191, 36, 0.18);
   z-index: 1;
 }
 
@@ -608,16 +611,15 @@ img, svg {
   pointer-events: none;
 }
 
-/* 1. Gate Valve: start-[6%] top-[4%] w-[46%] (Image 2 DevTools) */
+/* 1. Gate Valve: Centered, commanding presence (Reference Image 2) */
 .hero-pos-valve,
 .hero-center-valve {
   position: absolute;
-  top: 4%;
-  left: 6%;
-  width: 46%;
+  top: 10%;
+  left: 17%;
+  width: 66%;
   height: auto;
   z-index: 3;
-  animation: floatSubtle 6s ease-in-out infinite;
 }
 .hero-pos-valve img,
 .hero-center-valve {
@@ -625,37 +627,37 @@ img, svg {
   height: auto;
   display: block;
   filter: drop-shadow(0 24px 24px rgba(15, 23, 42, 0.25));
+  animation: floatValve 6s ease-in-out infinite;
 }
 
-/* 2. Top-Right Bearing: end-[22%] -top-[2%] w-[26%] (Image 2 DevTools) */
+/* 2. Top-Right Bearing (Reference Image 2) */
 .hero-pos-bearing,
 .hero-top-bearing {
   position: absolute;
-  top: -2%;
-  right: 22%;
-  width: 26%;
+  top: 6%;
+  right: 14%;
+  width: 25%;
   height: auto;
   z-index: 2;
-  animation: floatSubtle2 6.5s ease-in-out infinite;
 }
 .hero-pos-bearing img,
 .hero-top-bearing {
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 20px 24px rgba(15, 23, 42, 0.22));
+  filter: drop-shadow(0 18px 22px rgba(15, 23, 42, 0.22));
+  animation: floatBearing 7s ease-in-out infinite;
 }
 
-/* 3. Middle-Right Centrifugal Pump: end-[0%] top-[30%] w-[48%] (Image 2 DevTools) */
+/* 3. Middle-Right Centrifugal Pump & Electric Motor (Reference Image 2) */
 .hero-pos-pump,
 .hero-right-pump {
   position: absolute;
-  top: 30%;
-  right: 0%;
-  width: 48%;
+  top: 42%;
+  right: 2%;
+  width: 52%;
   height: auto;
   z-index: 4;
-  animation: floatSubtle 7s ease-in-out infinite;
 }
 .hero-pos-pump img,
 .hero-right-pump {
@@ -663,32 +665,33 @@ img, svg {
   height: auto;
   display: block;
   filter: drop-shadow(0 24px 24px rgba(15, 23, 42, 0.25));
+  animation: floatPump 6.5s ease-in-out infinite;
 }
 
-/* 4. Bottom-Left Safety Helmet: start-[7%] bottom-[7%] w-[36%] (Image 2 DevTools) */
+/* 4. Bottom-Center Safety Helmet (Reference Image 2) */
 .hero-pos-helmet,
 .hero-bottom-helmet {
   position: absolute;
-  bottom: 7%;
-  left: 7%;
-  width: 36%;
+  bottom: 0%;
+  left: 24%;
+  width: 34%;
   height: auto;
   z-index: 5;
-  animation: floatSubtle3 6s ease-in-out infinite;
 }
 .hero-pos-helmet img,
 .hero-bottom-helmet {
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 24px 24px rgba(15, 23, 42, 0.25));
+  filter: drop-shadow(0 20px 24px rgba(15, 23, 42, 0.24));
+  animation: floatHelmet 6s ease-in-out infinite;
 }
 
-/* 5. Floating Odoo SO Badge: start-[0%] top-[44%] (Image 2 DevTools) */
+/* 5. Floating Odoo SO Badge (Reference Image 2) */
 .floating-odoo-card {
   position: absolute;
-  top: 44%;
-  left: 0%;
+  top: 50%;
+  left: -2%;
   background-color: #0f172a;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -728,19 +731,20 @@ img, svg {
   font-family: monospace;
 }
 
-/* 6. Floating Price Card: bottom-[12%] end-[-7%] w-60 (Image 2 DevTools) */
+/* 6. Floating Price Card (Reference Image 2) */
 .floating-price-card {
   position: absolute;
-  bottom: 8%;
-  right: -4%;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(8px);
+  bottom: 2%;
+  right: -2%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid #e2e8f0;
   border-radius: 18px;
   padding: 16px 20px;
   box-shadow: 0 20px 42px rgba(15, 23, 42, 0.14);
   z-index: 8;
-  width: 250px;
+  width: 245px;
   animation: floatCard2 5.5s ease-in-out infinite;
 }
 
@@ -789,29 +793,35 @@ img, svg {
   color: #16a34a;
 }
 
-@keyframes floatSubtle {
-  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-  50% { transform: translate(-50%, -50%) translateY(-8px); }
-}
-
-@keyframes floatSubtle2 {
+/* Subtle, clean floating animations with pure translateY */
+@keyframes floatValve {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-7px); }
 }
 
-@keyframes floatSubtle3 {
+@keyframes floatBearing {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
+  50% { transform: translateY(-5px); }
 }
 
-@keyframes floatCard1 {
+@keyframes floatPump {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
 
+@keyframes floatHelmet {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+@keyframes floatCard1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
 @keyframes floatCard2 {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(7px); }
+  50% { transform: translateY(6px); }
 }
 
 /* --------------------------------------------------------------------------
@@ -2153,25 +2163,25 @@ img, svg {
 
   /* 3D Visual on Mobile */
   .hero-visual-wrapper {
-    max-width: 360px;
-    margin: 10px auto 0;
+    max-width: 350px;
+    margin: 16px auto 0;
   }
 
   .floating-odoo-card {
-    top: 42%;
-    left: -6px;
+    top: 48%;
+    left: 0;
     padding: 8px 12px;
     gap: 8px;
-    transform: scale(0.9);
+    transform: scale(0.85);
     transform-origin: left;
   }
 
   .floating-price-card {
     bottom: 0;
-    right: -6px;
-    width: 200px;
+    right: 0;
+    width: 205px;
     padding: 12px 14px;
-    transform: scale(0.9);
+    transform: scale(0.85);
     transform-origin: right bottom;
   }
 
