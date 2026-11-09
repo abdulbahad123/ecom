@@ -569,99 +569,98 @@ img, svg {
   color: #0f172a;
 }
 
-/* 3D Visual Stage (Image 2, 3, 5) */
+/* --------------------------------------------------------------------------
+   3D Visual Stage (Reference Images 2 & 3 - Exact DevTools Dimensions & Colors)
+   -------------------------------------------------------------------------- */
 .hero-visual-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 520px;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
 }
 
+/* Sun Orb Disc: Vibrant Amber to Radiant Deep Orange (Images 2 & 3) */
 .hero-sun-orb {
   position: absolute;
-  width: 440px;
-  height: 440px;
+  inset: 5%;
   border-radius: 50%;
-  background: radial-gradient(circle, #f97316 0%, #fb923c 55%, #fed7aa 80%, rgba(254, 215, 170, 0) 100%);
+  background: radial-gradient(circle at 45% 45%, #fbbf24 0%, #f59e0b 26%, #ea580c 70%, #c2410c 100%);
+  box-shadow: 0 0 85px rgba(234, 88, 12, 0.44), 0 0 170px rgba(251, 191, 36, 0.22);
   z-index: 1;
 }
 
-.hero-illustration-stage {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 480px;
-  height: 440px;
-}
-
+/* 1. Center Valve: 78% Width - Towering, high-impact presence (Image 2 DevTools) */
 .hero-center-valve {
   position: absolute;
   top: 50%;
-  left: 45%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 250px;
+  width: 78%;
   height: auto;
   z-index: 3;
-  filter: drop-shadow(0 20px 25px rgba(15, 23, 42, 0.16));
+  filter: drop-shadow(0 26px 30px rgba(15, 23, 42, 0.28));
   animation: floatSubtle 6s ease-in-out infinite;
 }
 
+/* 2. Top-Right Bearing: 26% Width, end-[22%] -top-[2%] (Image 2 DevTools) */
 .hero-top-bearing {
   position: absolute;
-  top: 15px;
-  right: 18%;
-  width: 110px;
+  top: -2%;
+  right: 22%;
+  width: 26%;
   height: auto;
   z-index: 2;
-  filter: drop-shadow(0 14px 20px rgba(15, 23, 42, 0.12));
+  filter: drop-shadow(0 16px 20px rgba(15, 23, 42, 0.18));
   animation: floatSubtle2 6.5s ease-in-out infinite;
 }
 
+/* 3. Middle-Right Pump & Electric Motor: 48% Width, end-[0%] top-[30%] (Image 2 DevTools) */
 .hero-right-pump {
   position: absolute;
-  bottom: 80px;
-  right: 6%;
-  width: 150px;
+  top: 30%;
+  right: -2%;
+  width: 48%;
   height: auto;
-  z-index: 2;
-  filter: drop-shadow(0 16px 22px rgba(15, 23, 42, 0.12));
+  z-index: 4;
+  filter: drop-shadow(0 22px 26px rgba(15, 23, 42, 0.22));
   animation: floatSubtle 7s ease-in-out infinite;
 }
 
+/* 4. Bottom-Left Safety Helmet: 36% Width, start-[7%] bottom-[7%] (Image 2 DevTools) */
 .hero-bottom-helmet {
   position: absolute;
-  bottom: 12px;
-  left: 18%;
-  width: 140px;
+  bottom: 7%;
+  left: 7%;
+  width: 36%;
   height: auto;
-  z-index: 4;
-  filter: drop-shadow(0 16px 20px rgba(15, 23, 42, 0.14));
+  z-index: 5;
+  filter: drop-shadow(0 20px 24px rgba(15, 23, 42, 0.2));
   animation: floatSubtle3 6s ease-in-out infinite;
 }
 
-/* Floating Odoo SO Badge */
+/* 5. Floating Odoo SO Badge: start-[0%] top-[44%] (Image 2 DevTools) */
 .floating-odoo-card {
   position: absolute;
-  top: 45%;
-  left: 0%;
-  background-color: #0f172a;
+  top: 44%;
+  left: -2%;
+  background-color: #0b1320;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 12px 18px;
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.28);
-  z-index: 5;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.35);
+  z-index: 8;
   animation: floatCard1 5s ease-in-out infinite;
 }
 
 .odoo-icon-box {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
   background-color: #ea580c;
   display: grid;
   place-items: center;
@@ -677,24 +676,25 @@ img, svg {
 }
 
 .odoo-text-code {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.5px;
   font-family: monospace;
 }
 
-/* Floating Price Card */
+/* 6. Floating Price Card: bottom-[12%] end-[-7%] w-60 (Image 2 DevTools) */
 .floating-price-card {
   position: absolute;
-  bottom: 5%;
-  right: -10px;
-  background-color: #ffffff;
+  bottom: 8%;
+  right: -4%;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
   border: 1px solid #e2e8f0;
   border-radius: 18px;
   padding: 16px 20px;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
-  z-index: 6;
+  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.14);
+  z-index: 8;
   width: 250px;
   animation: floatCard2 5.5s ease-in-out infinite;
 }
@@ -1058,7 +1058,7 @@ img, svg {
 .product-image-container {
   position: relative;
   width: 100%;
-  height: 240px;
+  height: 250px;
   background-color: #f8fafc;
   border-radius: 20px;
   display: flex;
@@ -1071,12 +1071,12 @@ img, svg {
 }
 
 .product-image-container img {
-  width: 88%;
-  height: 88%;
-  max-height: 205px;
+  width: 90%;
+  height: 90%;
+  max-height: 220px;
   object-fit: contain;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0 12px 20px rgba(15, 23, 42, 0.08));
+  filter: drop-shadow(0 14px 22px rgba(15, 23, 42, 0.09));
 }
 
 .product-card:hover .product-image-container img {
@@ -2108,77 +2108,26 @@ img, svg {
 
   /* 3D Visual on Mobile */
   .hero-visual-wrapper {
-    min-height: 380px;
-    width: 100%;
     max-width: 360px;
     margin: 10px auto 0;
   }
 
-  .hero-sun-orb {
-    width: 290px;
-    height: 290px;
-  }
-
-  .hero-illustration-stage {
-    max-width: 340px;
-    height: 330px;
-  }
-
-  .hero-center-valve {
-    width: 180px;
-  }
-
-  .hero-top-bearing {
-    width: 78px;
-    top: 5px;
-    right: 18%;
-  }
-
-  .hero-right-pump {
-    width: 105px;
-    bottom: 55px;
-    right: 4%;
-  }
-
-  .hero-bottom-helmet {
-    width: 100px;
-    bottom: 5px;
-    left: 14%;
-  }
-
   .floating-odoo-card {
     top: 42%;
-    left: -8px;
+    left: -6px;
     padding: 8px 12px;
     gap: 8px;
-  }
-
-  .odoo-icon-box {
-    width: 28px;
-    height: 28px;
-  }
-
-  .odoo-text-title {
-    font-size: 10px;
-  }
-
-  .odoo-text-code {
-    font-size: 12px;
+    transform: scale(0.9);
+    transform-origin: left;
   }
 
   .floating-price-card {
     bottom: 0;
-    right: -8px;
+    right: -6px;
     width: 200px;
     padding: 12px 14px;
-  }
-
-  .price-card-sar {
-    font-size: 14.5px;
-  }
-
-  .price-card-title {
-    font-size: 13px;
+    transform: scale(0.9);
+    transform-origin: right bottom;
   }
 
   /* Footer on Mobile */
@@ -2347,16 +2296,16 @@ img, svg {
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 480px;
+  min-height: 520px;
 }
 
 .pdp-featured-img {
-  max-width: 380px;
-  max-height: 380px;
-  width: 100%;
+  max-width: 440px;
+  max-height: 440px;
+  width: 92%;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 20px 32px rgba(15, 23, 42, 0.12));
+  filter: drop-shadow(0 24px 36px rgba(15, 23, 42, 0.12));
   transition: transform 0.3s ease;
 }
 
