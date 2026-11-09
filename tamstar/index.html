@@ -56,6 +56,12 @@
 
       <!-- Right Header Actions -->
       <div class="header-actions">
+        <!-- Mobile Search Glass (Image 4 & 5) -->
+        <button type="button" class="mobile-search-btn" onclick="window.triggerSearchModal()" aria-label="Search Catalog">
+          <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
         <button type="button" class="lang-switch-btn" onclick="window.showToast('Arabic / العربية version coming soon', 'info')" aria-label="Switch Language to Arabic">
           <svg style="width: 17px; height: 17px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -122,8 +128,8 @@
     </div>
   </nav>
 
-  <!-- 4. Hero Section with 3D Industrial Visual & Floating Badges -->
-  <section class="hero-section">
+  <!-- 4. Hero Section with 3D Industrial Visual & Floating Badges (Image 2, 3, 4, 5) -->
+  <section class="hero-section" id="heroSection">
     <div class="container hero-grid">
       <!-- Left Content -->
       <div class="hero-text-col">
@@ -135,12 +141,11 @@
         <h1 class="hero-title">
           Every part your<br>
           plant needs,<br>
-          <span class="highlight-orange">priced for</span><br>
-          <span class="highlight-orange">your contract.</span>
+          <span class="highlight-orange">priced for<br>your contract.</span>
         </h1>
 
         <p class="hero-description">
-          Order MRO and industrial supplies at company-specific prices, request quotes for anything off-catalog, and track every order live
+          Order MRO and industrial supplies at company-specific prices, request quotes for anything off-catalog, and track every order live from Odoo.
         </p>
 
         <div class="hero-cta-group">
@@ -174,10 +179,10 @@
       <div class="hero-visual-wrapper">
         <div class="hero-sun-orb"></div>
 
-        <!-- Floating Odoo SO Badge -->
+        <!-- Floating Odoo SO Badge (Image 2 & 5) -->
         <div class="floating-odoo-card">
           <div class="odoo-icon-box">
-            <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
             </svg>
           </div>
@@ -187,21 +192,35 @@
           </div>
         </div>
 
-        <!-- Center 3D Valve Illustration -->
+        <!-- Center 3D Equipment Cluster -->
         <div class="hero-illustration-stage">
+          <!-- Top Right Bearing -->
+          <img src="assets/images/cat-bearings.svg" alt="Industrial Bearing" class="hero-top-bearing">
+          <!-- Center Gate Valve -->
           <img src="assets/images/cat-valves.svg" alt="Gate Valve 4 Inch Class 150 Flanged" class="hero-center-valve">
+          <!-- Middle-Right Centrifugal Pump & Electric Motor -->
+          <img src="assets/images/cat-pumps.svg" alt="Centrifugal Slurry Pump & Motor" class="hero-right-pump">
+          <!-- Bottom-Left Safety Hardhat Helmet -->
+          <img src="assets/images/cat-safety.svg" alt="Safety Helmet ANSI Z89.1" class="hero-bottom-helmet">
         </div>
 
-        <!-- Floating Price Card -->
+        <!-- Floating Price Card (Image 2 & 5) -->
         <div class="floating-price-card">
-          <div class="price-card-label">Your company price</div>
+          <div class="price-card-label">
+            <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Your company price</span>
+          </div>
           <div class="price-card-title">Gate Valve 4" Class 150</div>
           <div class="price-card-amount-row">
             <span class="price-card-sar">SAR 1,595.00</span>
             <span class="price-card-old-sar">SAR 1,667.50</span>
           </div>
           <div class="price-card-stock">
-            <span class="stock-indicator-dot"></span>
+            <svg style="width: 13px; height: 13px; color: #16a34a;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
             <span>In stock · Jubail</span>
           </div>
         </div>
@@ -1022,57 +1041,111 @@
     </div>
   </section>
 
-    <!-- 8. Footer on Code Level -->
+    <!-- Light B2B Industrial Footer (Reference Image 1) -->
   <footer class="tamstar-footer">
     <div class="container">
       <div class="footer-top-grid">
-        <div>
-          <img src="assets/images/tamstar-logo.svg" alt="TAMSTAR نجم تام" style="height: 42px; filter: brightness(0) invert(1);">
+        <!-- Col 1: Brand, Mission, Location, Newsletter -->
+        <div class="footer-brand-col">
+          <a href="#" class="footer-brand-logo" aria-label="TAMSTAR">
+            <img src="assets/images/tamstar-logo.svg" alt="TAMSTAR نجم تام" style="height: 38px;">
+          </a>
           <p class="footer-brand-blurb">
-            TAMSTAR is the leading digital B2B procurement marketplace for MRO and plant engineering supplies across the Kingdom of Saudi Arabia.
+            Industrial procurement and supply partner for mining, petrochemicals, energy and construction across Saudi Arabia.
           </p>
+          <div class="footer-location-row">
+            <svg class="footer-loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>Dammam, Eastern Province, Saudi Arabia</span>
+          </div>
+
+          <!-- Price Alerts & New Stock Box (Image 1) -->
+          <div class="footer-newsletter-card">
+            <h4 class="newsletter-card-title">Price alerts &amp; new stock</h4>
+            <p class="newsletter-card-desc">Monthly digest for procurement teams.</p>
+            <form class="newsletter-form-row" onsubmit="event.preventDefault(); window.showToast('Subscribed to TAMSTAR price alerts successfully!', 'success'); this.reset();">
+              <input type="email" placeholder="Work email" class="newsletter-input" required>
+              <button type="submit" class="newsletter-submit-btn">
+                <span>Subscribe</span>
+                <span>&rarr;</span>
+              </button>
+            </form>
+          </div>
         </div>
 
-        <div>
-          <h4 class="footer-col-title">Engineered Categories</h4>
+        <!-- Col 2: Shop -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Shop</h4>
           <ul class="footer-links-list">
-            <li><a href="#cat-valves">Valves &amp; Actuators</a></li>
-            <li><a href="#cat-bearings">Bearings &amp; Power Transmission</a></li>
-            <li><a href="#cat-safety">Safety &amp; PPE Equipment</a></li>
-            <li><a href="#cat-electrical">Electrical &amp; Industrial Cables</a></li>
-            <li><a href="#cat-pumps">Centrifugal &amp; Slurry Pumps</a></li>
+            <li><a href="#categoriesSection">All categories</a></li>
+            <li><a href="#" onclick="window.showToast('Quick Order BOM tool active'); return false;">Quick order</a></li>
+            <li><a href="#" onclick="window.requestQuote('B2B Sourcing RFQ'); return false;">Request a quote</a></li>
+            <li><a href="#" onclick="window.showToast('Enter Odoo SO to track delivery status'); return false;">Track order</a></li>
           </ul>
         </div>
 
-        <div>
-          <h4 class="footer-col-title">B2B Procurement</h4>
+        <!-- Col 3: Company -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Company</h4>
           <ul class="footer-links-list">
-            <li><a href="#" onclick="window.requestQuote('Corporate RFQ'); return false;">Request a Formal RFQ</a></li>
-            <li><a href="#" onclick="window.showToast('ZATCA E-Invoicing Phase 2 Approved'); return false;">ZATCA E-Invoicing</a></li>
-            <li><a href="#" onclick="window.showToast('Credit Facility: 30-90 Day Terms for Aramco & SABIC Suppliers'); return false;">Vendor Credit Terms</a></li>
-            <li><a href="#" onclick="window.showToast('Local Content Certificate: 42% Score'); return false;">Local Content Certificate</a></li>
-            <li><a href="#" onclick="window.showToast('Direct Odoo ERP Integration Enabled'); return false;">Odoo ERP PunchOut</a></li>
+            <li><a href="#" onclick="window.showToast('About TAMSTAR Saudi Arabia'); return false;">About TAMSTAR</a></li>
+            <li><a href="#" onclick="window.showToast('TAMSTAR Careers in Eastern Province'); return false;">Careers</a></li>
+            <li><a href="#" onclick="window.showToast('Contact us: +966 13 899 0000 | b2b@tamstar.sa'); return false;">Contact us</a></li>
           </ul>
         </div>
 
-        <div>
-          <h4 class="footer-col-title">Eastern Province Hubs</h4>
+        <!-- Col 4: Support -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Support</h4>
           <ul class="footer-links-list">
-            <li><span>Dammam 2nd Industrial City</span></li>
-            <li><span>Jubail Support Industrial Park</span></li>
-            <li><span>Al Khobar Regional HQ</span></li>
-            <li><span>Tel: +966 13 899 0000</span></li>
-            <li><span>Email: b2b@tamstar.sa</span></li>
+            <li><a href="#" onclick="window.showToast('TAMSTAR Procurement Help Center'); return false;">Help center</a></li>
+            <li><a href="#" onclick="window.showToast('Kingdom-wide Delivery & Jubail Support Hub'); return false;">Shipping &amp; delivery</a></li>
+            <li><a href="#" onclick="window.showToast('Standard MRO 30-Day Returns Policy'); return false;">Returns</a></li>
+            <li><a href="#" onclick="window.showToast('B2B Commercial Terms of Sale'); return false;">Terms of sale</a></li>
+            <li><a href="#" onclick="window.showToast('Saudi PDPL Compliant Policy'); return false;">Privacy (PDPL)</a></li>
           </ul>
         </div>
       </div>
 
+      <!-- Footer Bottom Strip -->
       <div class="footer-bottom-strip">
-        <div>© 2026 TAMSTAR Trading Company Ltd. All rights reserved. Registered with Ministry of Commerce KSA.</div>
-        <div style="display: flex; gap: 24px;">
-          <a href="#" onclick="window.showToast('Privacy Policy'); return false;">Privacy Policy</a>
-          <a href="#" onclick="window.showToast('Procurement Agreement'); return false;">Procurement Terms</a>
-          <a href="#" onclick="window.showToast('ZATCA Verified'); return false;">ZATCA Verified</a>
+        <div class="footer-bottom-left">
+          <div>&copy; 2026 TAMSTAR Trading Est. All rights reserved.</div>
+          <div class="footer-cr-vat">CR 2050123456 &bull; VAT 310987654300003</div>
+        </div>
+
+        <div class="footer-bottom-right">
+          <!-- Compliance Badges -->
+          <div class="compliance-badge pdpl-badge">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"/>
+            </svg>
+            <span>PDPL</span>
+          </div>
+
+          <div class="compliance-badge zatca-badge">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/>
+            </svg>
+            <span>ZATCA</span>
+          </div>
+
+          <div class="compliance-badge secure-badge">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>3-D Secure</span>
+          </div>
+
+          <!-- Payment Badges (Image 1) -->
+          <div class="payment-badges-group">
+            <span class="pay-badge pay-mada">mada</span>
+            <span class="pay-badge pay-visa">VISA</span>
+            <span class="pay-badge pay-mc">MC</span>
+            <span class="pay-badge pay-apple">Pay</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1080,8 +1153,9 @@
 
   <!-- Floating Demo Mode Badge (Image 1, 2, 3, 4, 5 bottom-left) -->
   <div class="floating-demo-badge" id="floatingDemoBadge" title="Click to switch contract pricing tier">
+    <span class="demo-avatar-circle">G</span>
     <span class="demo-dot"></span>
-    <span>DEMO MODE: Guest</span>
+    <span id="demoModeText">DEMO MODE: Guest</span>
     <svg style="width: 14px; height: 14px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
     </svg>
@@ -1138,6 +1212,54 @@
       </div>
     </div>
   </div>
+
+
+  <!-- Mobile Sticky Bottom Navigation (Reference Image 4 & 5) -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+    <a href="#heroSection" class="mobile-nav-item active" onclick="window.setActiveMobileNav(this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Home</span>
+    </a>
+
+    <a href="#categoriesSection" class="mobile-nav-item" onclick="window.setActiveMobileNav(this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7"></rect>
+        <rect x="14" y="3" width="7" height="7"></rect>
+        <rect x="14" y="14" width="7" height="7"></rect>
+        <rect x="3" y="14" width="7" height="7"></rect>
+      </svg>
+      <span>Categories</span>
+    </a>
+
+    <a href="#" class="mobile-nav-item" onclick="window.triggerSearchModal(); window.setActiveMobileNav(this); return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <span>Search parts</span>
+    </a>
+
+    <a href="#" class="mobile-nav-item" onclick="window.requestQuote('Mobile RFQ Requisition'); window.setActiveMobileNav(this); return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="16" y1="13" x2="8" y2="13"></line>
+        <line x1="16" y1="17" x2="8" y2="17"></line>
+      </svg>
+      <span>RFQ</span>
+    </a>
+
+    <a href="#" class="mobile-nav-item" onclick="window.showToast('B2B Account Portal: Guest Session Active'); window.setActiveMobileNav(this); return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>Account</span>
+    </a>
+  </nav>
 
   <script src="js/app.js"></script>
 </body>

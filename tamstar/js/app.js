@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const nextIdx = (tiers.findIndex(t => t.name === currentTier) + 1) % tiers.length;
       currentTier = tiers[nextIdx].name;
       
-      demoBadge.innerHTML = `<span class="demo-dot"></span><span>DEMO: ${currentTier}</span><svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6" stroke-width="2.5"/></svg>`;
+      demoBadge.innerHTML = `<span class="demo-avatar-circle">${currentTier.charAt(0)}</span><span class="demo-dot"></span><span id="demoModeText">DEMO: ${currentTier}</span><svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6" stroke-width="2.5"/></svg>`;
       
       showToast(`Contract Pricing switched to: ${currentTier} (${tiers[nextIdx].discount} discount applied)`, 'info');
     });
@@ -230,6 +230,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 7. Request a Quote Action
+  
+  // Mobile Bottom Navigation active state handler
+  window.setActiveMobileNav = function(el) {
+    document.querySelectorAll('.mobile-nav-item').forEach(item => item.classList.remove('active'));
+    if (el) el.classList.add('active');
+  };
+
+  // Mobile Search trigger
+  window.triggerSearchModal = function() {
+    const input = document.getElementById('headerSearchInput');
+    if (input) {
+      const query = prompt('Search 19,000+ parts by name, SKU or brand:', '');
+      if (query && query.trim() !== '') {
+        showToast('Searching for: ' + query.trim(), 'info');
+      }
+    }
+  };
+
   window.requestQuote = function(categoryName = 'General') {
     showToast(`Quote requisition initiated for: ${categoryName}. Quote ID #QT-${Math.floor(1000 + Math.random() * 9000)} generated.`, 'info');
   };
