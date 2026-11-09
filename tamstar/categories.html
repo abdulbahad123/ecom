@@ -67,7 +67,7 @@
           <span>العربية</span>
         </button>
 
-        <button type="button" class="signin-btn" onclick="window.showToast('B2B Client Portal: Enter your company tax number to log in', 'info')">
+        <button type="button" class="signin-btn" onclick="window.openAuthModal('signin')">
           <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
           </svg>
@@ -322,7 +322,394 @@
 
       <!-- Products Grid (3 Columns on Desktop per Image 2 & 3, 2 Columns on Mobile per User Request) -->
       <div class="catalog-grid" id="catalogGrid">
-        <!-- Loaded dynamically from fullProductsDb in app.js -->
+        <!-- Card 1: Vented Safety Helmet -->
+        <div class="product-card" onclick="window.location.href='product.html?id=helmet'">
+          <div class="product-card-top">
+            <span class="badge-best-seller">Best seller</span>
+            <span class="badge-local-content"><svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Local content</span></span>
+          </div>
+          <div class="product-image-container">
+            <img src="assets/images/safety-helmet.svg" alt="Vented Safety Helmet, 6-Point Ratchet">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=helmet'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">IRONCREST SAFETY</div>
+            <h3 class="product-title">Vented Safety Helmet, 6-Point Ratchet</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">PPE-HLM-001</div>
+            <div class="product-stock-tag">
+              <span class="stock-indicator-dot"></span>
+              <span>1850 in stock</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>85.00</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('helmet')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Cut-Resistant Gloves -->
+        <div class="product-card" onclick="window.location.href='product.html?id=gloves'">
+          <div class="product-card-top">
+            <span class="badge-best-seller">Best seller</span>
+          </div>
+          <div class="product-image-container">
+            <img src="assets/images/prod-gloves.svg" alt="Cut-Resistant Gloves, Level A4">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=gloves'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">FALCONLINE</div>
+            <h3 class="product-title">Cut-Resistant Gloves, Level A4</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">PPE-GLV-3104</div>
+            <div class="product-stock-tag">
+              <span class="stock-indicator-dot"></span>
+              <span>5600 in stock</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>28.91</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('gloves')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Deep Groove Ball Bearing -->
+        <div class="product-card" onclick="window.location.href='product.html?id=bearing'">
+          <div class="product-card-top">
+            <span class="badge-best-seller">Best seller</span>
+          </div>
+          <div class="product-image-container">
+            <img src="assets/images/bearing.svg" alt="Deep Groove Ball Bearing 6205-2RS">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=bearing'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">NORDBRIDGE BEARINGS</div>
+            <h3 class="product-title">Deep Groove Ball Bearing 6205-2RS</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">BRG-6205-2RS</div>
+            <div class="product-stock-tag">
+              <span class="stock-indicator-dot"></span>
+              <span>2400 in stock</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>21.28</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('bearing')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Gate Valve 4" Class 150 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=valve'">
+          <div class="product-card-top">
+            <span class="badge-best-seller">Best seller</span>
+            <span class="badge-local-content"><svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Local content</span></span>
+          </div>
+          <div class="product-image-container">
+            <img src="assets/images/gate-valve.svg" alt="Gate Valve 4&quot; Class 150, Flanged">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=valve'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">DURAVALVE</div>
+            <h3 class="product-title">Gate Valve 4" Class 150, Flanged</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">VLV-GT-4150</div>
+            <div class="product-stock-tag">
+              <span class="stock-indicator-dot"></span>
+              <span>64 in stock</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>1,595.00</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('valve')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Miniature Circuit Breaker -->
+        <div class="product-card" onclick="window.location.href='product.html?id=mcb'">
+          <div class="product-card-top">
+            <span class="badge-best-seller">Best seller</span>
+          </div>
+          <div class="product-image-container">
+            <img src="assets/images/prod-mcb.svg" alt="Miniature Circuit Breaker 32 A, 1P">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=mcb'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">ARCWELL ELECTRIC</div>
+            <h3 class="product-title">Miniature Circuit Breaker 32 A, 1P</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">ELC-BRK-032A</div>
+            <div class="product-stock-tag">
+              <span class="stock-indicator-dot"></span>
+              <span>2100 in stock</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>32.20</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('mcb')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Cordless Impact Drill -->
+        <div class="product-card" onclick="window.location.href='product.html?id=drill'">
+          <div class="product-card-top">
+            <span class="badge-best-seller">Best seller</span>
+          </div>
+          <div class="product-image-container">
+            <img src="assets/images/prod-drill.svg" alt="Cordless Impact Drill 18 V Kit">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=drill'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">TORQMASTER</div>
+            <h3 class="product-title">Cordless Impact Drill 18 V Kit</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">TLS-DRI-18V</div>
+            <div class="product-stock-tag">
+              <span class="stock-indicator-dot"></span>
+              <span>160 in stock</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>828.00</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('drill')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: End-Suction Centrifugal Pump -->
+        <div class="product-card" onclick="window.location.href='product.html?id=pump-end'">
+          <div class="product-image-container">
+            <img src="assets/images/centrifugal-pump.svg" alt="End-Suction Centrifugal Pump 7.5 kW">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=pump-end'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">HYDRAPEX PUMPS</div>
+            <h3 class="product-title">End-Suction Centrifugal Pump 7.5 kW</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">PMP-CNT-075</div>
+            <div class="product-stock-tag" style="color: #ea580c;">
+              <span class="stock-indicator-dot" style="background-color: #ea580c;"></span>
+              <span>Only 12 left</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>7,750.00</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('pump-end')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8: Hydraulic Hose -->
+        <div class="product-card" onclick="window.location.href='product.html?id=hose'">
+          <div class="product-image-container">
+            <img src="assets/images/prod-hose.svg" alt="Hydraulic Hose SAE 100R2AT 1/2&quot;">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=hose'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">HYDRAPEX FLUID POWER</div>
+            <h3 class="product-title">Hydraulic Hose SAE 100R2AT 1/2"</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">HYD-HSE-R2-08</div>
+            <div class="product-stock-tag">
+              <span class="stock-indicator-dot"></span>
+              <span>1800 in stock</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>48.30</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('hose')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9: Stud Bolt Set -->
+        <div class="product-card" onclick="window.location.href='product.html?id=studs'">
+          <div class="product-image-container">
+            <img src="assets/images/prod-studs.svg" alt="Stud Bolt Set ASTM A193 B7, M20 × 150">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=studs'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">SAHM FASTENERS</div>
+            <h3 class="product-title">Stud Bolt Set ASTM A193 B7, M20 × 150</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">FST-STB-B7M20</div>
+            <div class="product-stock-tag">
+              <span class="stock-indicator-dot"></span>
+              <span>640 in stock</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>241.50</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('studs')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 10: Industrial Gear Oil -->
+        <div class="product-card" onclick="window.location.href='product.html?id=oil'">
+          <div class="product-card-top">
+            <span class="badge-best-seller">Best seller</span>
+          </div>
+          <div class="product-image-container">
+            <img src="assets/images/cat-lubricants.svg" alt="Industrial Gear Oil ISO VG 320, 208 L">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=oil'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">PETROLON</div>
+            <h3 class="product-title">Industrial Gear Oil ISO VG 320, 208 L</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">LUB-GR320-208L</div>
+            <div class="product-stock-tag">
+              <span class="stock-indicator-dot"></span>
+              <span>45 in stock</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>3,120.00</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('oil')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 11: Hydraulic Return Filter Element -->
+        <div class="product-card" onclick="window.location.href='product.html?id=filter'">
+          <div class="product-card-top">
+            <span class="badge-best-seller">Best seller</span>
+          </div>
+          <div class="product-image-container">
+            <img src="assets/images/cat-filtration.svg" alt="Hydraulic Return Filter Element 10 μm">
+            <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=filter'">
+              <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span>Quick view</span>
+            </button>
+          </div>
+          <div class="product-details">
+            <div class="product-brand">FILTREX PRO</div>
+            <h3 class="product-title">Hydraulic Return Filter Element 10 μm</h3>
+            <div style="font-size: 11px; color: #94a3b8; font-family: monospace; margin-bottom: 4px;">FLT-HYD-010U</div>
+            <div class="product-stock-tag">
+              <span class="stock-indicator-dot"></span>
+              <span>320 in stock</span>
+            </div>
+            <div class="product-footer-row">
+              <div class="product-price-block">
+                <span class="product-price-sar"><span style="font-size: 13px; font-weight: 700; color: #64748b;">SAR </span>145.00</span>
+              </div>
+              <button type="button" class="product-add-cart-btn" onclick="event.stopPropagation(); window.addToCartAndOpen('filter')" aria-label="Add to Order">
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -460,7 +847,7 @@
       </svg>
       <span>RFQ</span>
     </a>
-    <a href="#" class="mobile-nav-item" onclick="window.showToast('B2B Account Portal: Guest Session Active'); return false;">
+    <a href="#" class="mobile-nav-item" onclick="window.openAuthModal('signin'); return false;">
       <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
       </svg>
@@ -471,3 +858,4 @@
   <script src="js/app.js"></script>
 </body>
 </html>
+

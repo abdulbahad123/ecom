@@ -463,7 +463,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestQuote = function(categoryName = 'General') {
     showToast(`Quote requisition initiated for: ${categoryName}. Quote ID #QT-${Math.floor(1000 + Math.random() * 9000)} generated.`, 'info');
   };
-});
 
 
 
@@ -1007,7 +1006,245 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   };
 
-  // Initialize on load
-  initCartSidebar();
-  initProductDetailPage();
-  initCatalogPage();
+  // ==========================================================================
+  // Auth Modal System (Image 5: Sign in to TAMSTAR / Account Popup)
+  // ==========================================================================
+  window.currentUser = null;
+
+  window.initAuthModal = function() {
+    if (document.getElementById('authModalOverlay')) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'auth-modal-overlay';
+    overlay.id = 'authModalOverlay';
+    overlay.onclick = function(e) {
+      if (e.target === overlay) window.closeAuthModal();
+    };
+
+    overlay.innerHTML = `
+      <div class="auth-modal-card" id="authModalCard">
+        <button type="button" class="auth-modal-close-btn" onclick="window.closeAuthModal()" aria-label="Close dialog">
+          <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+
+        <div class="auth-modal-top">
+          <img src="assets/images/tamstar-logo.svg" alt="TAMSTAR" class="auth-logo">
+          <button type="button" class="auth-lang-btn" onclick="window.showToast('Language toggle: Arabic / English', 'info')">
+            <svg style="width: 14px; height: 14px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+            </svg>
+            <span>العربية</span>
+          </button>
+        </div>
+
+        <div class="auth-tab-nav">
+          <button type="button" class="auth-tab-btn active" id="authTabSignInBtn" onclick="window.switchAuthTab('signin')">Sign in</button>
+          <button type="button" class="auth-tab-btn" id="authTabSignUpBtn" onclick="window.switchAuthTab('signup')">Request access</button>
+        </div>
+
+        <!-- Pane 1: Sign in (Image 5) -->
+        <div class="auth-tab-pane active" id="authPaneSignIn">
+          <h2 class="auth-title">Sign in to TAMSTAR</h2>
+          <p class="auth-subtitle">Company accounts are created by the TAMSTAR team. Check your invitation email to activate yours.</p>
+
+          <div class="auth-demo-box">
+            <div class="auth-demo-title">One-click demo sign-in</div>
+            <div class="auth-demo-subtitle">Explore each role without credentials.</div>
+
+            <div class="auth-demo-roles">
+              <div class="auth-role-card" onclick="window.signInAsDemoUser('Sara Al-Dossary', 'Buyer · SAR 5,000 / order', 'sara.aldossary@gulfpetrochem.sa', 'SD', '#1d4ed8')">
+                <div class="auth-avatar" style="background-color: #1d4ed8;">SD</div>
+                <div class="auth-role-info">
+                  <div class="auth-role-name">Sara Al-Dossary</div>
+                  <div class="auth-role-sub">Buyer · SAR 5,000 / order</div>
+                </div>
+                <span class="auth-role-arrow">&rarr;</span>
+              </div>
+
+              <div class="auth-role-card" onclick="window.signInAsDemoUser('Ahmed Al-Ghamdi', 'Company Admin · Gulf Petrochem', 'ahmed.alghamdi@gulfpetrochem.sa', 'AG', '#c2410c')">
+                <div class="auth-avatar" style="background-color: #c2410c;">AG</div>
+                <div class="auth-role-info">
+                  <div class="auth-role-name">Ahmed Al-Ghamdi</div>
+                  <div class="auth-role-sub">Company Admin · Gulf Petrochem</div>
+                </div>
+                <span class="auth-role-arrow">&rarr;</span>
+              </div>
+
+              <div class="auth-role-card" onclick="window.signInAsDemoUser('Lina Al-Mansour', 'TAMSTAR Admin', 'lina.almansour@tamstar.com', 'LM', '#0f172a')">
+                <div class="auth-avatar" style="background-color: #0f172a;">LM</div>
+                <div class="auth-role-info">
+                  <div class="auth-role-name">Lina Al-Mansour</div>
+                  <div class="auth-role-sub">TAMSTAR Admin</div>
+                </div>
+                <span class="auth-role-arrow">&rarr;</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="auth-divider">
+            <span>OR</span>
+          </div>
+
+          <form class="auth-form" onsubmit="event.preventDefault(); window.handleAuthSubmit();">
+            <div class="auth-field-group">
+              <label class="auth-label" for="authEmailInput">Work email</label>
+              <input type="email" id="authEmailInput" class="auth-input" value="sara.aldossary@gulfpetrochem.sa" placeholder="name@company.com" required>
+            </div>
+
+            <div class="auth-field-group">
+              <div class="auth-label-row">
+                <label class="auth-label" for="authPasswordInput">Password</label>
+                <a href="javascript:void(0)" class="auth-forgot-link" onclick="window.showToast('Password reset link sent to work email', 'info')">Forgot password?</a>
+              </div>
+              <input type="password" id="authPasswordInput" class="auth-input" value="••••••••" placeholder="Enter password" required>
+            </div>
+
+            <button type="submit" class="auth-submit-btn">
+              <span>Sign in</span>
+              <span>&rarr;</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Pane 2: Request Access (Sign up) -->
+        <div class="auth-tab-pane" id="authPaneSignUp">
+          <h2 class="auth-title">Request Company Account</h2>
+          <p class="auth-subtitle">Join verified Saudi industrial enterprises procuring via TAMSTAR B2B contracts.</p>
+
+          <form class="auth-form" onsubmit="event.preventDefault(); window.handleSignUpSubmit();">
+            <div class="auth-field-group">
+              <label class="auth-label" for="signupCompanyName">Company Legal Name</label>
+              <input type="text" id="signupCompanyName" class="auth-input" placeholder="e.g. Saudi Aramco Subcontractor Ltd." required>
+            </div>
+
+            <div class="auth-field-row">
+              <div class="auth-field-group">
+                <label class="auth-label" for="signupCR">Commercial Reg. (CR)</label>
+                <input type="text" id="signupCR" class="auth-input" placeholder="10-digit CR Number" required>
+              </div>
+              <div class="auth-field-group">
+                <label class="auth-label" for="signupVAT">VAT / Tax ID</label>
+                <input type="text" id="signupVAT" class="auth-input" placeholder="15-digit Tax ID" required>
+              </div>
+            </div>
+
+            <div class="auth-field-group">
+              <label class="auth-label" for="signupContactName">Contact Full Name</label>
+              <input type="text" id="signupContactName" class="auth-input" placeholder="Procurement officer name" required>
+            </div>
+
+            <div class="auth-field-row">
+              <div class="auth-field-group">
+                <label class="auth-label" for="signupWorkEmail">Work Email</label>
+                <input type="email" id="signupWorkEmail" class="auth-input" placeholder="procurement@company.sa" required>
+              </div>
+              <div class="auth-field-group">
+                <label class="auth-label" for="signupPhone">Phone (+966)</label>
+                <input type="tel" id="signupPhone" class="auth-input" placeholder="05x xxx xxxx" required>
+              </div>
+            </div>
+
+            <button type="submit" class="auth-submit-btn auth-submit-btn-orange">
+              <span>Submit Company Requisition</span>
+              <span>&rarr;</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+  };
+
+  window.openAuthModal = function(tab = 'signin') {
+    window.initAuthModal();
+    window.switchAuthTab(tab);
+    const overlay = document.getElementById('authModalOverlay');
+    if (overlay) {
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeAuthModal = function() {
+    const overlay = document.getElementById('authModalOverlay');
+    if (overlay) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  window.switchAuthTab = function(tab) {
+    const signInBtn = document.getElementById('authTabSignInBtn');
+    const signUpBtn = document.getElementById('authTabSignUpBtn');
+    const signInPane = document.getElementById('authPaneSignIn');
+    const signUpPane = document.getElementById('authPaneSignUp');
+
+    if (tab === 'signup') {
+      if (signInBtn) signInBtn.classList.remove('active');
+      if (signUpBtn) signUpBtn.classList.add('active');
+      if (signInPane) signInPane.classList.remove('active');
+      if (signUpPane) signUpPane.classList.add('active');
+    } else {
+      if (signUpBtn) signUpBtn.classList.remove('active');
+      if (signInBtn) signInBtn.classList.add('active');
+      if (signUpPane) signUpPane.classList.remove('active');
+      if (signInPane) signInPane.classList.add('active');
+    }
+  };
+
+  window.signInAsDemoUser = function(name, role, email, initials, avatarBg) {
+    window.currentUser = { name, role, email, initials, avatarBg };
+    updateUserAuthUI();
+    window.closeAuthModal();
+    showToast(`Welcome back, ${name} (${role})`, 'success');
+  };
+
+  window.handleAuthSubmit = function() {
+    const email = document.getElementById('authEmailInput') ? document.getElementById('authEmailInput').value : 'user@company.sa';
+    window.currentUser = {
+      name: email.split('@')[0].replace('.', ' ').toUpperCase(),
+      role: 'Enterprise Buyer',
+      email: email,
+      initials: 'EB',
+      avatarBg: '#ea580c'
+    };
+    updateUserAuthUI();
+    window.closeAuthModal();
+    showToast(`Welcome back! Signed in with ${email}`, 'success');
+  };
+
+  window.handleSignUpSubmit = function() {
+    const company = document.getElementById('signupCompanyName') ? document.getElementById('signupCompanyName').value : 'Company';
+    window.closeAuthModal();
+    showToast(`Requisition received for ${company}! Verification email sent.`, 'success');
+  };
+
+  function updateUserAuthUI() {
+    if (!window.currentUser) return;
+    document.querySelectorAll('.signin-btn').forEach(btn => {
+      btn.innerHTML = `
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:${window.currentUser.avatarBg}; color:#fff; font-size:10px; font-weight:800; margin-right:4px;">${window.currentUser.initials}</span>
+        <span>${window.currentUser.name.split(' ')[0]}</span>
+      `;
+      btn.onclick = () => {
+        showToast(`Signed in: ${window.currentUser.name} (${window.currentUser.role})`, 'info');
+      };
+    });
+  }
+
+  // Robust Initializer runner
+  window.initProductDetailPage = initProductDetailPage;
+  window.initCatalogPage = initCatalogPage;
+
+  function runInitializers() {
+    if (window.initCartSidebar) window.initCartSidebar();
+    if (window.initProductDetailPage) window.initProductDetailPage();
+    if (window.initCatalogPage) window.initCatalogPage();
+    if (window.initAuthModal) window.initAuthModal();
+  }
+
+  runInitializers();
+});
