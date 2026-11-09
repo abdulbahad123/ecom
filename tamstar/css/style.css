@@ -4093,3 +4093,482 @@ img, svg {
   background-color: #c2410c;
 }
 
+/* ==========================================================================
+   RFQ Wizard Page (Images 2, 3, 4, 5)
+   ========================================================================== */
+.rfq-hero-section {
+  background: linear-gradient(180deg, #fffaf5 0%, #ffffff 100%);
+  border-bottom: 1px solid #f1f5f9;
+  padding: 32px 0 24px;
+}
+
+.rfq-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin: 0 0 8px 0;
+}
+
+.rfq-subtitle {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 680px;
+}
+
+.rfq-main-container {
+  padding-top: 36px;
+  padding-bottom: 72px;
+}
+
+/* Desktop Horizontal Stepper */
+.rfq-stepper-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  position: relative;
+}
+
+.rfq-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.rfq-step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s ease;
+}
+
+.rfq-step-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #64748b;
+  transition: color 0.2s ease;
+}
+
+.rfq-step-item.active .rfq-step-circle {
+  border-color: #ea580c;
+  background-color: #fff7ed;
+  color: #ea580c;
+  box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.12);
+}
+
+.rfq-step-item.active .rfq-step-label {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.rfq-step-item.completed .rfq-step-circle {
+  border-color: #ea580c;
+  background-color: #ea580c;
+  color: #ffffff;
+}
+
+.rfq-step-connector {
+  flex: 1;
+  height: 2px;
+  background-color: #e2e8f0;
+  margin: 0 12px;
+  margin-bottom: 24px;
+  transition: background-color 0.2s ease;
+}
+
+.rfq-step-connector.completed {
+  background-color: #ea580c;
+}
+
+/* Mobile Vertical Stepper (Image 4) */
+.rfq-stepper-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .rfq-stepper-desktop {
+    display: none;
+  }
+
+  .rfq-stepper-mobile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    padding: 0 4px;
+  }
+
+  .rfq-mobile-step-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    position: relative;
+    padding-bottom: 22px;
+  }
+
+  .rfq-mobile-step-row:last-child {
+    padding-bottom: 0;
+  }
+
+  .rfq-mobile-step-row:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 17px;
+    top: 36px;
+    bottom: 0;
+    width: 2px;
+    background-color: #e2e8f0;
+    transition: background-color 0.2s ease;
+  }
+
+  .rfq-mobile-step-row.completed::before {
+    background-color: #ea580c;
+  }
+
+  .rfq-mobile-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #cbd5e1;
+    background-color: #ffffff;
+    color: #64748b;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    z-index: 2;
+    transition: all 0.2s ease;
+  }
+
+  .rfq-mobile-step-row.active .rfq-mobile-circle {
+    border-color: #ea580c;
+    background-color: #fff7ed;
+    color: #ea580c;
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.12);
+  }
+
+  .rfq-mobile-step-row.completed .rfq-mobile-circle {
+    border-color: #ea580c;
+    background-color: #ea580c;
+    color: #ffffff;
+  }
+
+  .rfq-mobile-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: #64748b;
+    margin-top: 7px;
+    transition: color 0.2s ease;
+  }
+
+  .rfq-mobile-step-row.active .rfq-mobile-label {
+    color: #0f172a;
+    font-weight: 800;
+  }
+}
+
+/* RFQ Form Card (Image 3 & 5) */
+.rfq-form-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 36px 36px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+@media (max-width: 768px) {
+  .rfq-form-card {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+}
+
+.rfq-step-pane {
+  display: none;
+}
+
+.rfq-step-pane.active {
+  display: block;
+  animation: rfqFadeIn 0.22s ease-out;
+}
+
+@keyframes rfqFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.rfq-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.rfq-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+}
+
+.rfq-label-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-left: 6px;
+}
+
+.rfq-input,
+.rfq-textarea,
+.rfq-select {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14.5px;
+  color: #0f172a;
+  background-color: #ffffff;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.rfq-input:focus,
+.rfq-textarea:focus,
+.rfq-select:focus {
+  border-color: #ea580c;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+}
+
+.rfq-textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.rfq-row-3 {
+  display: grid;
+  grid-template-columns: 130px 140px 1fr;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+@media (max-width: 768px) {
+  .rfq-row-3 {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .rfq-col-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+.rfq-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #f1f5f9;
+  gap: 12px;
+}
+
+.rfq-btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.rfq-btn-back:hover:not(.disabled) {
+  background-color: #f8fafc;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.rfq-btn-back.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  visibility: hidden;
+}
+
+.rfq-btn-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: none;
+  background-color: #ea580c;
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-left: auto;
+  transition: all 0.18s ease;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.22);
+}
+
+.rfq-btn-next:hover {
+  background-color: #c2410c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.32);
+}
+
+/* Radio Cards for Delivery terms */
+.rfq-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rfq-radio-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background-color: #ffffff;
+}
+
+.rfq-radio-card:hover {
+  border-color: #fed7aa;
+  background-color: #fffdfa;
+}
+
+.rfq-radio-card input[type="radio"] {
+  accent-color: #ea580c;
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+}
+
+.rfq-radio-card span {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.45;
+}
+
+.rfq-radio-card span strong {
+  color: #0f172a;
+}
+
+/* Dropzone for Attachments */
+.rfq-dropzone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 14px;
+  padding: 36px 20px;
+  text-align: center;
+  background-color: #f8fafc;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.rfq-dropzone:hover {
+  border-color: #ea580c;
+  background-color: #fffdfa;
+}
+
+.rfq-dropzone-icon {
+  width: 44px;
+  height: 44px;
+  color: #ea580c;
+  margin-bottom: 12px;
+}
+
+/* Summary Box for Step 4 Review */
+.rfq-summary-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.rfq-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 13.5px;
+}
+
+.rfq-summary-row:last-child {
+  border-bottom: none;
+}
+
+.rfq-summary-label {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.rfq-summary-val {
+  color: #0f172a;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Success Confirmation Screen */
+.rfq-success-card {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.rfq-success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #ecfdf5;
+  color: #10b981;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 20px;
+}
+
+.rfq-ref-pill {
+  display: inline-block;
+  background-color: #fff7ed;
+  color: #ea580c;
+  border: 1px solid #fed7aa;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 800;
+  margin: 12px 0 20px;
+}
+
+

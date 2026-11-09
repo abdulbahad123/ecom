@@ -115,12 +115,12 @@
           <span>Quick order</span>
         </button>
 
-        <button type="button" class="request-quote-btn" onclick="window.requestQuote('B2B Requisition')">
+        <a href="rfq.html" class="request-quote-btn" style="text-decoration:none;">
           <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
           </svg>
           <span>Request a quote</span>
-        </button>
+        </a>
       </div>
     </div>
   </nav>
@@ -286,7 +286,7 @@
             <span>Add to order</span>
           </button>
 
-          <button type="button" class="pdp-btn-rfq" onclick="window.requestQuote(document.getElementById('pdpTitle').textContent)">
+          <button type="button" class="pdp-btn-rfq" onclick="window.location.href='rfq.html?item=' + encodeURIComponent(document.getElementById('pdpTitle') ? document.getElementById('pdpTitle').textContent : 'Industrial Part')">
             <svg style="width: 17px; height: 17px; color: #ea580c;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
@@ -569,7 +569,7 @@
           <ul class="footer-links-list">
             <li><a href="index.html#categoriesSection">All categories</a></li>
             <li><a href="#" onclick="window.showToast('Quick Order BOM tool active'); return false;">Quick order</a></li>
-            <li><a href="#" onclick="window.requestQuote('B2B Sourcing RFQ'); return false;">Request a quote</a></li>
+            <li><a href="rfq.html">Request a quote</a></li>
             <li><a href="#" onclick="window.showToast('Enter Odoo SO to track delivery status'); return false;">Track order</a></li>
           </ul>
         </div>
@@ -668,7 +668,7 @@
       </svg>
       <span>Search parts</span>
     </a>
-    <a href="#" class="mobile-nav-item" onclick="window.requestQuote('Mobile RFQ Requisition'); return false;">
+    <a href="rfq.html" class="mobile-nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
         <polyline points="14 2 14 8 20 8"></polyline>
