@@ -611,13 +611,13 @@ img, svg {
   pointer-events: none;
 }
 
-/* 1. Gate Valve: Centered, commanding presence (Reference Image 2) */
+/* 1. Gate Valve: Top-Left quadrant (Reference Image 2) */
 .hero-pos-valve,
 .hero-center-valve {
   position: absolute;
-  top: 10%;
-  left: 17%;
-  width: 66%;
+  top: 8%;
+  left: 6%;
+  width: 48%;
   height: auto;
   z-index: 3;
 }
@@ -630,13 +630,13 @@ img, svg {
   animation: floatValve 6s ease-in-out infinite;
 }
 
-/* 2. Top-Right Bearing (Reference Image 2) */
+/* 2. Top-Center/Right Bearing ("Gear Icon") (Reference Image 2) */
 .hero-pos-bearing,
 .hero-top-bearing {
   position: absolute;
-  top: 6%;
-  right: 14%;
-  width: 25%;
+  top: 1%;
+  right: 24%;
+  width: 22%;
   height: auto;
   z-index: 2;
 }
@@ -653,9 +653,9 @@ img, svg {
 .hero-pos-pump,
 .hero-right-pump {
   position: absolute;
-  top: 42%;
-  right: 2%;
-  width: 52%;
+  top: 40%;
+  right: 4%;
+  width: 46%;
   height: auto;
   z-index: 4;
 }
@@ -668,13 +668,13 @@ img, svg {
   animation: floatPump 6.5s ease-in-out infinite;
 }
 
-/* 4. Bottom-Center Safety Helmet (Reference Image 2) */
+/* 4. Bottom-Left Safety Helmet (Reference Image 2) */
 .hero-pos-helmet,
 .hero-bottom-helmet {
   position: absolute;
-  bottom: 0%;
-  left: 24%;
-  width: 34%;
+  bottom: 5%;
+  left: 10%;
+  width: 30%;
   height: auto;
   z-index: 5;
 }
@@ -690,7 +690,7 @@ img, svg {
 /* 5. Floating Odoo SO Badge (Reference Image 2) */
 .floating-odoo-card {
   position: absolute;
-  top: 50%;
+  top: 46%;
   left: -2%;
   background-color: #0f172a;
   color: #ffffff;
@@ -734,8 +734,8 @@ img, svg {
 /* 6. Floating Price Card (Reference Image 2) */
 .floating-price-card {
   position: absolute;
-  bottom: 2%;
-  right: -2%;
+  bottom: 4%;
+  right: 0%;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -744,7 +744,7 @@ img, svg {
   padding: 16px 20px;
   box-shadow: 0 20px 42px rgba(15, 23, 42, 0.14);
   z-index: 8;
-  width: 245px;
+  width: 235px;
   animation: floatCard2 5.5s ease-in-out infinite;
 }
 
