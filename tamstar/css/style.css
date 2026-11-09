@@ -445,9 +445,13 @@ img, svg {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   align-items: center;
-  gap: 40px;
+  gap: 32px;
+}
+
+.hero-text-col {
+  max-width: 580px;
 }
 
 .hero-badge-pill {
@@ -473,12 +477,12 @@ img, svg {
 }
 
 .hero-title {
-  font-size: clamp(38px, 4.4vw, 58px);
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-size: clamp(40px, 4.8vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
   color: #0f172a;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .hero-title .highlight-orange {
@@ -489,11 +493,11 @@ img, svg {
 }
 
 .hero-description {
-  font-size: 16.5px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.65;
   color: #475569;
-  max-width: 520px;
-  margin-bottom: 32px;
+  max-width: 550px;
+  margin-bottom: 34px;
 }
 
 .hero-cta-group {
@@ -2134,6 +2138,10 @@ img, svg {
     font-size: 14.5px;
     line-height: 1.55;
     margin-bottom: 24px;
+  }
+
+  .hero-desc-br {
+    display: none;
   }
 
   .hero-cta-group {
