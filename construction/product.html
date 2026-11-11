@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | TAMSTAR</title>
+  <meta name="description" content="Industrial equipment specifications, jobsite ratings, pricing, and stock availability from TAMSTAR.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pdp-page">
+
+  <!-- ======================================================================
+       1. Clean White Industrial Header & Sub-Navigation
+       ====================================================================== -->
+  <header class="site-header-sticky">
+    <div class="main-header">
+      <div class="container header-inner">
+        <div class="brand-wrap">
+          <button type="button" class="mobile-menu-btn" onclick="window.toggleMobileDrawer()" aria-label="Open Navigation Menu">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+
+          <a href="index.html" class="brand-link">
+            <span class="brand-logo-pill">
+              <img src="assets/images/logo.jpeg" alt="TAMSTAR" class="brand-logo-img">
+            </span>
+          </a>
+        </div>
+
+        <div class="search-wrapper" id="desktopSearchWrapper">
+          <div class="search-box">
+            <svg class="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input type="text" id="desktopSearchInput" class="search-field" placeholder="Search breakers, impact wrenches, lasers, SKU or brand..." oninput="window.handleSearchInput(this.value)">
+            <span class="search-kbd">Ctrl K</span>
+            <button type="button" class="search-submit-pill" onclick="window.handleSearchInput(document.getElementById('desktopSearchInput').value)">Search</button>
+          </div>
+          <div class="search-results-dropdown" id="searchResultsDropdown"></div>
+        </div>
+
+        <div class="header-actions">
+          <button type="button" class="header-pill-btn desktop-only-action" onclick="window.openModal('authModal')">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+            <span>Sign in</span>
+          </button>
+
+          <button type="button" class="mobile-search-toggle-btn" onclick="window.toggleMobileSearch()" aria-label="Search Equipment">
+            <svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </button>
+
+          <button type="button" class="cart-btn" onclick="window.openCart()" aria-label="Open Cart">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span class="cart-badge" id="headerCartBadge">2</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-search-bar" id="mobileSearchBar">
+      <div class="search-box" style="height: 42px;">
+        <svg class="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input type="text" id="mobileSearchInput" class="search-field" placeholder="Search industrial tools, hammers, SKU..." oninput="window.handleSearchInput(this.value)">
+        <button type="button" class="search-submit-pill" style="height:32px; padding:0 12px;" onclick="window.toggleMobileSearch()">Done</button>
+      </div>
+      <div class="mobile-search-results" id="mobileSearchResults"></div>
+    </div>
+
+    <nav class="sub-nav-bar" aria-label="Equipment Categories">
+      <div class="container sub-nav-inner">
+        <div class="sub-nav-left">
+          <button type="button" class="all-categories-btn" id="allCatBtn" onclick="window.toggleMegaMenu(event)">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+            </svg>
+            <span>All Categories</span>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <div class="categories-mega-menu" id="categoriesMegaMenu">
+            <a href="index.html#demolitionSection" class="mega-menu-item"><img src="assets/images/cat-demolition.png" alt="Demolition"><span>Demolition &amp; Breakers</span></a>
+            <a href="index.html#showcaseSection" class="mega-menu-item"><img src="assets/images/cat-drill.png" alt="Drills"><span>Drills &amp; Fasteners</span></a>
+            <a href="index.html#showcaseSection" class="mega-menu-item"><img src="assets/images/cat-grinder.png" alt="Grinders"><span>Grinders &amp; Cutters</span></a>
+            <a href="index.html#catalogSection" class="mega-menu-item"><img src="assets/images/cat-welding.png" alt="Welding"><span>Welding Equipment</span></a>
+            <a href="index.html#catalogSection" class="mega-menu-item"><img src="assets/images/cat-concrete.png" alt="Concrete"><span>Concrete Mixers</span></a>
+            <a href="index.html#showcaseSection" class="mega-menu-item"><img src="assets/images/cat-earthmoving.png" alt="Earthmoving"><span>Heavy Earthmoving</span></a>
+            <a href="index.html#catalogSection" class="mega-menu-item"><img src="assets/images/cat-safety.png" alt="Safety"><span>Safety &amp; PPE Gear</span></a>
+            <a href="index.html#showcaseSection" class="mega-menu-item"><img src="assets/images/cat-generator.png" alt="Generators"><span>Site Generators</span></a>
+          </div>
+
+          <ul class="nav-links-list">
+            <li class="nav-link-item"><a href="index.html">Store Home</a></li>
+            <li class="nav-link-item"><a href="index.html#demolitionSection">Demolition</a></li>
+            <li class="nav-link-item"><a href="index.html#showcaseSection">Series Showcase</a></li>
+            <li class="nav-link-item"><a href="index.html#catalogSection">Featured Catalog</a></li>
+            <li class="nav-link-item"><a href="index.html#testimonialsSection">Client Reviews</a></li>
+          </ul>
+        </div>
+
+        <div class="sub-nav-right">
+          <button type="button" class="order-sku-btn" onclick="window.openModal('skuOrderModal')">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+            <span>Order by SKU</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pdp-main">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="pdp-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="index.html#catalogSection" id="pdpBreadcrumbCat">Equipment</a>
+        <span>/</span>
+        <span id="pdpBreadcrumbTitle" class="current">Loading...</span>
+      </nav>
+
+      <!-- Main Product Detail Showcase -->
+      <section class="pdp-hero-grid" id="pdpContainer"></section>
+
+      <!-- Detailed Specifications & Applications -->
+      <section class="pdp-details-section" id="pdpSpecsSection"></section>
+
+      <!-- Related Industrial Equipment -->
+      <section class="pdp-related-section">
+        <div class="catalog-header-row" style="margin-bottom: 24px;">
+          <div>
+            <h2 class="section-main-title" style="font-size: 24px;">Related Industrial Equipment</h2>
+            <p class="catalog-subtitle">Explore complementary tools and jobsite essentials ready to ship today.</p>
+          </div>
+          <a href="index.html#catalogSection" class="view-all-pill">All Tools →</a>
+        </div>
+        <div class="catalog-grid" id="pdpRelatedGrid"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col-about">
+          <a href="index.html" class="brand-link" style="margin-bottom: 14px;">
+            <span class="brand-logo-pill footer-logo-pill">
+              <img src="assets/images/logo.jpeg" alt="TAMSTAR" class="brand-logo-img">
+            </span>
+          </a>
+          <p style="font-size: 13.5px; line-height: 1.65; max-width: 340px; color: #94a3b8;">
+            Heavy industrial equipment, concrete demolition systems, cordless brushless kits, precision lasers, and jobsite machinery built for relentless durability.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Shop Equipment</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html#demolitionSection">Demolition Breakers</a></li>
+            <li><a href="index.html#showcaseSection">Drills &amp; Fasteners</a></li>
+            <li><a href="index.html#showcaseSection">Grinders &amp; Welding</a></li>
+            <li><a href="index.html#catalogSection">Featured Equipment</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Customer Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="javascript:void(0)" onclick="window.openModal('skuOrderModal')">Order by SKU</a></li>
+            <li><a href="index.html#testimonialsSection">Client Experiences</a></li>
+            <li><a href="javascript:void(0)" onclick="window.openModal('authModal')">Trade Account Sign In</a></li>
+            <li><a href="index.html#jobsiteAdvantageSection">3-Year Tool Warranty</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Support &amp; Dispatch</h4>
+          <ul class="footer-links-list">
+            <li><span>Regional Logistics Hubs</span></li>
+            <li><span>+1 (800) 555-0194</span></li>
+            <li><span>support@tamstar.com</span></li>
+            <li><span>Mon–Sat · 7:00 AM – 7:00 PM</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 TAMSTAR. All rights reserved.</span>
+        <div class="payment-badges">
+          <span class="pay-tag">PO / Net-30</span>
+          <span class="pay-tag">VISA</span>
+          <span class="pay-tag">Mastercard</span>
+          <span class="pay-tag">3-Yr Warranty</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay" onclick="window.closeCart()"></div>
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <h3 class="cart-title">Equipment Cart</h3>
+      <button type="button" class="close-icon-btn" onclick="window.closeCart()" aria-label="Close Cart">&times;</button>
+    </div>
+    <div class="cart-body" id="cartItemsList"></div>
+    <div class="cart-footer">
+      <div class="cart-summary-line"><span>Subtotal</span><span id="cartSubtotalVal">SAR 0.00</span></div>
+      <div class="cart-summary-line"><span>Estimated VAT (15%)</span><span id="cartVatVal">SAR 0.00</span></div>
+      <div class="cart-summary-line total"><span>Total</span><span id="cartTotalVal">SAR 0.00</span></div>
+      <button type="button" class="cart-checkout-btn" onclick="window.submitDemoCheckout()">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="window.toggleMobileDrawer()"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div class="drawer-header">
+      <span class="brand-logo-pill footer-logo-pill">
+        <img src="assets/images/logo.jpeg" alt="TAMSTAR" class="brand-logo-img" style="height: 28px;">
+      </span>
+      <button type="button" class="close-icon-btn" style="color:#ffffff;" onclick="window.toggleMobileDrawer()" aria-label="Close Menu">&times;</button>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-nav-label">Navigation</div>
+      <a href="index.html" class="drawer-link"><span>Store Home</span><span>→</span></a>
+      <a href="index.html#demolitionSection" class="drawer-link"><span>Demolition &amp; Breakers</span><span>→</span></a>
+      <a href="index.html#showcaseSection" class="drawer-link"><span>Series Showcase</span><span>→</span></a>
+      <a href="index.html#catalogSection" class="drawer-link"><span>Featured Catalog</span><span>→</span></a>
+      <a href="index.html#testimonialsSection" class="drawer-link"><span>Client Testimonials</span><span>→</span></a>
+      <div class="drawer-nav-label">Order &amp; Account</div>
+      <a href="javascript:void(0)" class="drawer-link" onclick="window.toggleMobileDrawer(); window.openModal('skuOrderModal')"><span>Order by SKU</span><span>⚡</span></a>
+      <a href="javascript:void(0)" class="drawer-link" onclick="window.toggleMobileDrawer(); window.openModal('authModal')"><span>Account / Sign In</span><span>👤</span></a>
+    </div>
+  </aside>
+
+  <!-- Modals -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="window.closeAllModals()"></div>
+  <div class="center-modal" id="authModal" role="dialog" aria-modal="true" aria-label="Account Sign In">
+    <div class="modal-header">
+      <h3 style="font-size: 17px; font-weight: 800; color: #0f172a;">TAMSTAR Account Sign In</h3>
+      <button type="button" class="close-icon-btn" onclick="window.closeAllModals()">&times;</button>
+    </div>
+    <form onsubmit="window.submitAuthForm(event)">
+      <div class="form-group">
+        <label class="form-label" for="authEmail">Work Email or Member ID</label>
+        <input type="email" id="authEmail" class="form-control" placeholder="name@company.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="authPass">Password</label>
+        <input type="password" id="authPass" class="form-control" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="cart-checkout-btn">Sign In</button>
+    </form>
+  </div>
+
+  <div class="center-modal" id="skuOrderModal" role="dialog" aria-modal="true" aria-label="Order by SKU">
+    <div class="modal-header">
+      <h3 style="font-size: 17px; font-weight: 800; color: #0f172a;">Order by Industrial SKU</h3>
+      <button type="button" class="close-icon-btn" onclick="window.closeAllModals()">&times;</button>
+    </div>
+    <form onsubmit="window.submitQuickOrder(event)">
+      <div class="form-group">
+        <label class="form-label" for="quickSkuInput">Part SKU (e.g. IF-IW-900, LT-RL-360, IF-DH-1500)</label>
+        <input type="text" id="quickSkuInput" class="form-control" value="IF-IW-900" required>
+      </div>
+      <button type="submit" class="cart-checkout-btn">Add SKU to Cart</button>
+    </form>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-nav-bar" aria-label="Mobile Quick Navigation">
+    <div class="mobile-nav-grid">
+      <a href="index.html" class="mobile-nav-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+        </svg>
+        <span>Home</span>
+      </a>
+      <a href="index.html#categoriesSection" class="mobile-nav-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+        </svg>
+        <span>Categories</span>
+      </a>
+      <a href="index.html#catalogSection" class="mobile-nav-item active">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+        </svg>
+        <span>Products</span>
+      </a>
+      <button type="button" class="mobile-nav-item" onclick="window.toggleMobileSearch()">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <span>Search</span>
+      </button>
+      <button type="button" class="mobile-nav-item" onclick="window.openModal('authModal')">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+        </svg>
+        <span>Account</span>
+      </button>
+    </div>
+  </nav>
+
+  <button type="button" class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollToTop()" aria-label="Back to Top">
+    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+
