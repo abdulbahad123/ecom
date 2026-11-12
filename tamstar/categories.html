@@ -39,7 +39,7 @@
   <header class="main-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo-wrap" aria-label="TAMSTAR Industrial Homepage">
-        <img src="assets/images/tamstar-logo.svg" alt="TAMSTAR نجم تام" class="brand-logo-img">
+        <img src="assets/logo.png" alt="TAMSTAR نجم تام" class="brand-logo-img">
       </a>
 
       <!-- Search Bar -->
@@ -113,12 +113,12 @@
           <span>Quick order</span>
         </button>
 
-        <a href="rfq.html" class="request-quote-btn" style="text-decoration:none;">
+        <button type="button" class="request-quote-btn" onclick="window.requestQuote('B2B Tender Requisition')">
           <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
           </svg>
           <span>Request a quote</span>
-        </a>
+        </button>
       </div>
     </div>
   </nav>
@@ -241,7 +241,7 @@
       <div class="filter-section-block">
         <h3 class="filter-heading">Price range (SAR)</h3>
         <div style="padding: 10px 0;">
-          <input type="range" min="0" max="12750" value="12750" id="catalogPriceRange" style="width: 100%; accent-color: #ea580c;" oninput="document.getElementById('catalogPriceMax').textContent = parseInt(this.value).toLocaleString()">
+          <input type="range" min="0" max="12750" value="12750" id="catalogPriceRange" style="width: 100%; accent-color: var(--theme-primary);" oninput="document.getElementById('catalogPriceMax').textContent = parseInt(this.value).toLocaleString()">
           <div style="display: flex; justify-content: space-between; font-size: 12.5px; color: #64748b; margin-top: 6px; font-weight: 600;">
             <span>0</span>
             <span id="catalogPriceMax">12,750</span>
@@ -329,7 +329,7 @@
             <span class="badge-local-content"><svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Local content</span></span>
           </div>
           <div class="product-image-container">
-            <img src="assets/images/safety-helmet.svg" alt="Vented Safety Helmet, 6-Point Ratchet">
+            <img src="assets/product_transparent/White Safety Hard Hat with Suspension.png" alt="Vented Safety Helmet, 6-Point Ratchet">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=helmet'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -365,7 +365,7 @@
             <span class="badge-best-seller">Best seller</span>
           </div>
           <div class="product-image-container">
-            <img src="assets/images/prod-gloves.svg" alt="Cut-Resistant Gloves, Level A4">
+            <img src="assets/product_transparent/Grey and Black Grip Work Gloves.png" alt="Cut-Resistant Gloves, Level A4">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=gloves'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -401,7 +401,7 @@
             <span class="badge-best-seller">Best seller</span>
           </div>
           <div class="product-image-container">
-            <img src="assets/images/bearing.svg" alt="Deep Groove Ball Bearing 6205-2RS">
+            <img src="assets/product_transparent/Polished Silver Ball Bearing Ring.png" alt="Deep Groove Ball Bearing 6205-2RS">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=bearing'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -438,7 +438,7 @@
             <span class="badge-local-content"><svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Local content</span></span>
           </div>
           <div class="product-image-container">
-            <img src="assets/images/gate-valve.svg" alt="Gate Valve 4&quot; Class 150, Flanged">
+            <img src="assets/product_transparent/Industrial Gate Valve on Transparent Background.png" alt="Gate Valve 4&quot; Class 150, Flanged">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=valve'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -474,7 +474,7 @@
             <span class="badge-best-seller">Best seller</span>
           </div>
           <div class="product-image-container">
-            <img src="assets/images/prod-mcb.svg" alt="Miniature Circuit Breaker 32 A, 1P">
+            <img src="assets/product_transparent/Off-White DIN Rail Circuit Breaker with Orange Toggle.png" alt="Miniature Circuit Breaker 32 A, 1P">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=mcb'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -510,7 +510,7 @@
             <span class="badge-best-seller">Best seller</span>
           </div>
           <div class="product-image-container">
-            <img src="assets/images/prod-drill.svg" alt="Cordless Impact Drill 18 V Kit">
+            <img src="assets/product_transparent/Rugged Orange-Accented Cordless Drill.png" alt="Cordless Impact Drill 18 V Kit">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=drill'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -543,7 +543,7 @@
         <!-- Card 7: End-Suction Centrifugal Pump -->
         <div class="product-card" onclick="window.location.href='product.html?id=pump-end'">
           <div class="product-image-container">
-            <img src="assets/images/centrifugal-pump.svg" alt="End-Suction Centrifugal Pump 7.5 kW">
+            <img src="assets/product_transparent/Industrial Centrifugal Pump Assembly.png" alt="End-Suction Centrifugal Pump 7.5 kW">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=pump-end'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -576,7 +576,7 @@
         <!-- Card 8: Hydraulic Hose -->
         <div class="product-card" onclick="window.location.href='product.html?id=hose'">
           <div class="product-image-container">
-            <img src="assets/images/prod-hose.svg" alt="Hydraulic Hose SAE 100R2AT 1/2&quot;">
+            <img src="assets/product_transparent/Coiled Industrial Hydraulic Hose.png" alt="Hydraulic Hose SAE 100R2AT 1/2&quot;">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=hose'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -609,7 +609,7 @@
         <!-- Card 9: Stud Bolt Set -->
         <div class="product-card" onclick="window.location.href='product.html?id=studs'">
           <div class="product-image-container">
-            <img src="assets/images/prod-studs.svg" alt="Stud Bolt Set ASTM A193 B7, M20 × 150">
+            <img src="assets/product_transparent/Five Identical Threaded Studs with Nuts.png" alt="Stud Bolt Set ASTM A193 B7, M20 × 150">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=studs'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -645,7 +645,7 @@
             <span class="badge-best-seller">Best seller</span>
           </div>
           <div class="product-image-container">
-            <img src="assets/images/cat-lubricants.svg" alt="Industrial Gear Oil ISO VG 320, 208 L">
+            <img src="assets/product_transparent/Weathered Steel Drum with Dual Bungs.png" alt="Industrial Gear Oil ISO VG 320, 208 L">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=oil'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -681,7 +681,7 @@
             <span class="badge-best-seller">Best seller</span>
           </div>
           <div class="product-image-container">
-            <img src="assets/images/cat-filtration.svg" alt="Hydraulic Return Filter Element 10 μm">
+            <img src="assets/product_transparent/Industrial Honeycomb Mesh Filter Cartridge.png" alt="Hydraulic Return Filter Element 10 μm">
             <button type="button" class="product-quick-view-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=filter'">
               <svg style="width: 15px; height: 15px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -721,7 +721,7 @@
         <!-- Col 1: Brand -->
         <div class="footer-brand-col">
           <a href="index.html" class="footer-brand-logo" aria-label="TAMSTAR">
-            <img src="assets/images/tamstar-logo.svg" alt="TAMSTAR نجم تام" style="height: 38px;">
+            <img src="assets/logo.png" alt="TAMSTAR نجم تام" class="footer-brand-logo-img" style="height: 42px;">
           </a>
           <p class="footer-brand-blurb">
             Industrial procurement and supply partner for mining, petrochemicals, energy and construction across Saudi Arabia.
@@ -841,7 +841,7 @@
       </svg>
       <span>Search parts</span>
     </a>
-    <a href="rfq.html" class="mobile-nav-item">
+    <a href="#" class="mobile-nav-item" onclick="window.requestQuote('Mobile RFQ Requisition'); return false;">
       <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
       </svg>
